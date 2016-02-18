@@ -28,7 +28,7 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 	
 	private JLabel lListaAlumnos;
 	private JButton bAcceder, bFinalizar, bFalta;
-	private JList listaAlumnos;
+	private JList<String> listaAlumnos;
 	private JLabel etiResultado;
 	private JScrollPane scrollPane;
 	private ArrayList<Alumno> alumnos;
@@ -38,11 +38,9 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 	Font fuente = new Font("Century Gothic", Font.BOLD, 20);
 	
 	public PanelListaAlumnos(JFrame framePrincipal){
-	
+
 		//Inicializar
-		
 		this.setLayout(null);
-		
 		this.framePrincipal = (FramePrincipal) framePrincipal;
 		
 		//Recoger alumnos
@@ -50,22 +48,17 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 		alumnos = new ArrayList<Alumno>();
 		alumnos = alumnoDAO.findByAsignatura(this.framePrincipal.asignaturaImpartida.getId());
 		
-		
 		//Creacion de componentes
 		lListaAlumnos = new JLabel("Lista Alumnos");
-		lListaAlumnos.setFont(fuente);
-		bAcceder = new JButton("Ver Alumno");
-		bAcceder.setFont(fuente);
+		bAcceder = new JButton("Acceder");
 		bFinalizar= new JButton("Finalizar Clase");
-		bFinalizar.setFont(fuente);
 		bFalta= new JButton("Falta");
-		bFalta.setFont(fuente);
 		
 		//Posicionamiento de los componentes
-		lListaAlumnos.setBounds(267, 22, 160, 18);
-		bAcceder.setBounds(212, 334, 171, 52);
-		bFinalizar.setBounds(393, 334, 217, 52);
-		bFalta.setBounds(73, 334, 129, 52);
+		lListaAlumnos.setBounds(23, 55, 331, 18);
+		bAcceder.setBounds(168, 95, 105, 18);
+		bFinalizar.setBounds(63, 124, 181, 18);
+		bFalta.setBounds(53, 95, 85, 18);
 		
 		//Añadir al panel los componentes
 		this.add(lListaAlumnos);
@@ -74,25 +67,23 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 		this.add(bFalta);
 		
 		//metodos listener
-		bFalta.addActionListener(this);
-		bAcceder.addActionListener(this);
-		bFinalizar.addActionListener(this);
+				bFalta.addActionListener(this);
+				bAcceder.addActionListener(this);
+				bFinalizar.addActionListener(this);
 		
-				//modificar de aqui ha abajo!!!!!!!!!!
-				
 		etiResultado = new JLabel("etiresultado");
-		etiResultado.setFont(fuente);
-		etiResultado.setBounds(78, 305, 532, 18);
+		etiResultado.setFont(new Font("Century Gothic", Font.BOLD, 13));
+		etiResultado.setBounds(23, 235, 331, 18);
 		this.add(etiResultado);
 
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(73, 51, 542, 254);
-		this.add(scrollPane);
+		scrollPane.setBounds(20, 113, 347, 201);
 		
 		
-		listaAlumnos = new JList();
-		listaAlumnos.setFont(fuente);
+		listaAlumnos = new JList<String>();
+		
+		listaAlumnos.setFont(new Font("Century Gothic", Font.BOLD, 13));
 		
 		//se alinean las celdas aL CENTRO
 				UIResource posicion = new UIResource();
@@ -116,7 +107,7 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 		});
 
 		//Crear un objeto DefaultListModel
-		DefaultListModel listModel = new DefaultListModel();
+		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		//Recorrer el contenido del ArrayList
 		for(int i=0; i<alumnos.size(); i++) {
 		    //Añadir cada elemento del ArrayList en el modelo de la lista
@@ -130,38 +121,59 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 	}
 		
 		
+		
+		
+		/*panel = new JPanel();
+		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel.setBounds(20, 214, 347, 37);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		etiResultado = new JLabel("");
+		etiResultado.setBounds(10, 11, 331, 14);
+		panel.add(etiResultado);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 38, 178, 123);
+		contentPane.add(scrollPane);
+
+		listaAlumnos = new JList();
+		listaAlumnos.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				String mensaje = "";
+				if(listaAlumnos.getSelectedIndex()==0){
+					mensaje="El color seleccionado es: "+ listaAlumnos.getSelectedValue().toString();
+				}
+				if(listaAlumnos.getSelectedIndex()==1){
+					mensaje="El color seleccionado es: "+ listaAlumnos.getSelectedValue().toString();
+				}
+				if(listaAlumnos.getSelectedIndex()==2){
+					mensaje="El color seleccionado es: "+ listaAlumnos.getSelectedValue().toString();
+				}
+				
+				etiResultado.setText(mensaje);
+
+			}
+		});
+		listaAlumnos.setModel(new AbstractListModel() {
+			String[] values = new String[] {"Rojo", "Verde", "Azul"};
+			public int getSize() {
+				return values.length;
+			}
+			public Object getElementAt(int index) {
+				return values[index];
+			}
+		});
+		scrollPane.setViewportView(listaAlumnos);
+	}
+		
+	}*/
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		if(e.getSource().equals(bAcceder)){	//esto es una prueba
-			String mensaje = "";
-			if(listaAlumnos.getSelectedIndex()==-1){
-				mensaje="No hay ningun alumno seleccionado";
-			}
-			else{
-			//mensaje="El alumno seleccionado es: "+ listaAlumnos.getSelectedValue().toString();
-				this.framePrincipal.alumnoSeleccionado = alumnos.get(listaAlumnos.getSelectedIndex());
-			// ir al alumno info
-			this.framePrincipal.cambiarPanel(new PanelAlumno(framePrincipal));
-
-				
-			}
-			etiResultado.setText(mensaje);
-		}
-		if(e.getSource().equals(bFalta)){	
-			
-			//PONER FALTA AL ALUMNO SELECCIONADO"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-			}
-		if(e.getSource().equals(bFinalizar)){	
-			framePrincipal.cambiarPanel(new PanelAsignatura(framePrincipal));
-
-			}
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
 		
-		
-		
-			
-	
 	}
 
 }

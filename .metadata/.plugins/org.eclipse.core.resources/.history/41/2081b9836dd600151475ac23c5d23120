@@ -63,9 +63,9 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 		
 		//Posicionamiento de los componentes
 		lListaAlumnos.setBounds(267, 22, 160, 18);
-		bAcceder.setBounds(212, 334, 171, 52);
-		bFinalizar.setBounds(393, 334, 217, 52);
-		bFalta.setBounds(73, 334, 129, 52);
+		bAcceder.setBounds(212, 354, 171, 52);
+		bFinalizar.setBounds(393, 354, 217, 52);
+		bFalta.setBounds(73, 354, 129, 52);
 		
 		//Añadir al panel los componentes
 		this.add(lListaAlumnos);
@@ -82,12 +82,12 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 				
 		etiResultado = new JLabel("etiresultado");
 		etiResultado.setFont(fuente);
-		etiResultado.setBounds(78, 305, 532, 18);
+		etiResultado.setBounds(73, 325, 532, 18);
 		this.add(etiResultado);
 
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(73, 51, 542, 254);
+		scrollPane.setBounds(73, 51, 542, 272);
 		this.add(scrollPane);
 		
 		
