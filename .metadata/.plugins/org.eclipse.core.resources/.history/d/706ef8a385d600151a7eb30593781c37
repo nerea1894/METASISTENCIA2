@@ -12,7 +12,7 @@ import model.Falta;
 
 public class FaltaDAO {
 	
-	private static final String INSERT = "INSERT INTO falta(id_alumno, id_asignatura, fecha) VALUES(?,?,?);";
+	private static final String INSERT = "INSERT INTO falta(id_alumno, id_asignatura) VALUES(?,?);";
 	private static final String FECHA = "SELECT fecha FROM falta WHERE id_alumno=? AND id_asignatura=?;";
 	private static final String FIND_BY_ALUMNO = "SELECT * FROM falta WHERE id_alumno=? GROUP BY fecha;";
 	
@@ -31,7 +31,6 @@ public class FaltaDAO {
 			stmt = conn.prepareStatement(FECHA);
 			stmt.setInt(1, falta.getId_alumno());
 			stmt.setInt(2, falta.getId_asignatura());
-			stmt.setString(3, "SYSDATE()");
 			
 			ResultSet rs = stmt.executeQuery();
 			

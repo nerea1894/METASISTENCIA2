@@ -17,9 +17,7 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 
 import DAO.AlumnoDAO;
-import DAO.FaltaDAO;
 import model.Alumno;
-import model.Falta;
 
 import javax.swing.DefaultListCellRenderer.UIResource;
 
@@ -147,10 +145,8 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 		}
 		if(e.getSource().equals(bFalta)){	
 			
-				FaltaDAO faltaDAO = new FaltaDAO();
-				Falta falta = new Falta(this.framePrincipal.alumnoSeleccionado.getId(), this.framePrincipal.asignaturaImpartida.getId());
-				faltaDAO.insert(falta);
-			
+			//PONER FALTA AL ALUMNO SELECCIONADO"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 			}
 		if(e.getSource().equals(bFinalizar)){	
 			
