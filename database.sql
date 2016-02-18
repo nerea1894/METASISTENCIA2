@@ -25,8 +25,10 @@ CREATE TABLE IF NOT EXISTS alumno (
 CREATE TABLE IF NOT EXISTS falta (
 	fecha DATE,
 	id_alumno INT,
-	PRIMARY KEY (fecha,id_alumno),
-	FOREIGN KEY (id_alumno) REFERENCES alumno(id) ON DELETE CASCADE ON UPDATE CASCADE
+	id_asignatura INT,
+	PRIMARY KEY (fecha,id_alumno,id_asignatura),
+	FOREIGN KEY (id_alumno) REFERENCES alumno(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (id_asignatura) REFERENCES asignatura(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS nota (
@@ -96,11 +98,6 @@ VALUES(6,'Pablo');
 INSERT INTO alumno
 VALUES(7,'Oriol');
 
-
-INSERT INTO falta(fecha,id_alumno)
-VALUES('2016-01-7',1);
-
-
 INSERT INTO nota(id_asignatura,id_alumno,nota1,nota2,nota3,nota_ex)
 VALUES(1,1,0,0,0,0);
 
@@ -156,10 +153,4 @@ VALUES(4,6,0,0,0,0);
 
 INSERT INTO nota(id_asignatura,id_alumno,nota1,nota2,nota3,nota_ex)
 VALUES(4,7,0,0,0,0);
-
-
-
-
-INSERT INTO amonestacion(motivo,id_asignatura,id_alumno)
-VALUES('Falta de respeto',1,1);
 
