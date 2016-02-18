@@ -1,0 +1,121 @@
+package metasistencia;
+
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+import model.Alumno;
+
+public class PanelAlumno extends JPanel implements ActionListener{
+
+	FramePrincipal framePrincipal;
+
+	private JButton bAmonestacion, bVolver, bFalta, bNota;
+	private JLabel nombreAlumno;
+	
+	static Alumno alumnoSeleccionado;
+	Font fuente = new Font("Century Gothic", Font.BOLD, 20);
+	
+	public PanelAlumno(JFrame framePrincipal){
+	
+		//Inicializar
+		
+		this.setLayout(null);
+		
+		this.framePrincipal = (FramePrincipal) framePrincipal;
+		
+		//Recoger alumnos
+		
+		
+		
+		//Creacion de componentes
+		nombreAlumno = new JLabel("Alumno:");
+		nombreAlumno.setFont(fuente);
+		bAmonestacion = new JButton("Poner Amonestacion");
+		bAmonestacion.setFont(fuente);
+		bVolver= new JButton("Volver");
+		bVolver.setFont(fuente);
+		bFalta= new JButton("Poner Falta");
+		bFalta.setFont(fuente);
+		bNota= new JButton("Poner notas");
+		bNota.setFont(fuente);
+		
+		
+		//Posicionamiento de los componentes
+		nombreAlumno.setBounds(55, 59, 160, 18);
+		bAmonestacion.setBounds(353, 97, 299, 52);
+		bVolver.setBounds(55, 285, 171, 52);
+		bFalta.setBounds(353, 187, 299, 52);
+		bNota.setBounds(353, 285, 299, 52);
+		
+		
+		//Añadir al panel los componentes
+		this.add(nombreAlumno);
+		this.add(bAmonestacion);
+		this.add(bVolver);
+		this.add(bFalta);
+		this.add(bNota);
+		
+		//metodos listener
+		bAmonestacion.addActionListener(this);
+		bVolver.addActionListener(this);
+		bFalta.addActionListener(this);
+		bNota.addActionListener(this);
+
+		
+}
+	
+	public void ponerAmonestacion(){
+	
+	        Box box = Box.createVerticalBox();
+	        JCheckBox cbox1 = new JCheckBox("Check me once");
+	        JCheckBox cbox2 = new JCheckBox("Check me twice");
+	        JCheckBox cbox3 = new JCheckBox("Check me thrice");
+	        box.add(cbox1);
+	        box.add(cbox2);
+	        box.add(cbox3);
+	        JOptionPane.showMessageDialog(null, box);
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource().equals(bNota)){	
+			
+				//this.framePrincipal.alumnoSeleccionado;
+				//this.framePrincipal.cambiarPanel(new PanelNota(framePrincipal));
+
+		}
+		if(e.getSource().equals(bFalta)){	
+			
+			//PONER FALTA AL ALUMNO SELECCIONADO"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+				ponerAmonestacion();
+			}
+	if(e.getSource().equals(bAmonestacion)){	
+			
+			//PONER amonestacion AL ALUMNO SELECCIONADO"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+	
+
+		    
+		
+		
+			}
+		
+		if(e.getSource().equals(bVolver)){	
+			
+			framePrincipal.cambiarPanel(new PanelListaAlumnos(framePrincipal));
+
+			}
+		
+	}
+}

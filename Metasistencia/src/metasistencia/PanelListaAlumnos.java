@@ -32,15 +32,12 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 	private JLabel etiResultado;
 	private JScrollPane scrollPane;
 	private ArrayList<Alumno> alumnos;
-	//private JPanel panel;
-	//private ArrayList<Alumno> listaAlumnos;
 	
 	Font fuente = new Font("Century Gothic", Font.BOLD, 20);
 	
 	public PanelListaAlumnos(JFrame framePrincipal){
 	
 		//Inicializar
-		
 		this.setLayout(null);
 		
 		this.framePrincipal = (FramePrincipal) framePrincipal;
@@ -78,7 +75,7 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 		bAcceder.addActionListener(this);
 		bFinalizar.addActionListener(this);
 		
-				//modificar de aqui ha abajo!!!!!!!!!!
+		//modificar de aqui ha abajo!!!!!!!!!!
 				
 		etiResultado = new JLabel("etiresultado");
 		etiResultado.setFont(fuente);
@@ -139,10 +136,8 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 				mensaje="No hay ningun alumno seleccionado";
 			}
 			else{
-			//mensaje="El alumno seleccionado es: "+ listaAlumnos.getSelectedValue().toString();
 				this.framePrincipal.alumnoSeleccionado = alumnos.get(listaAlumnos.getSelectedIndex());
-			// ir al alumno info
-			this.framePrincipal.cambiarPanel(new PanelAlumno(framePrincipal));
+				this.framePrincipal.cambiarPanel(new PanelAlumno(framePrincipal));
 
 				
 			}
@@ -154,6 +149,7 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 
 			}
 		if(e.getSource().equals(bFinalizar)){	
+			
 			framePrincipal.cambiarPanel(new PanelAsignatura(framePrincipal));
 
 			}
