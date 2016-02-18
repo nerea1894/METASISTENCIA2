@@ -6,29 +6,36 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import connectionDB.ConnectionDB;
 import model.Falta;
+import model.Profesor;
 
 public class FaltaDAO {
 	
-	private static final String INSERT = "INSERT INTO falta VALUES(?,?,?);";
+	private static final String INSERT = "INSERT INTO falta VALUES(SYSDATE(),?,?);";
 	private static final String FECHA = "SELECT fecha FROM falta WHERE id_alumno=? AND id_asignatura=?;";
 	private static final String FIND_BY_ALUMNO = "SELECT * FROM falta WHERE id_alumno=? GROUP BY fecha;";
+	private static final String FIND_IGUAL = "SELECT * FROM falta WHERE fecha=? AND id_alumno=? AND id_asignatura=?;";
 	
-	@SuppressWarnings("resource")
+	@SuppressWarnings({ "resource", "null" })
 	public String insert(Falta falta) {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		
 		try {
 			conn = ConnectionDB.getConnection();
-			stmt = conn.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
-			stmt.setString(1, "SYSDATE()");
-			stmt.setInt(2, falta.getId_alumno());
-			stmt.setInt(3, falta.getId_asignatura());
-			stmt = null;
+			stmt = conn.prepareStatement(INSERT);
+			//stmt.setString(1, "");
+			stmt.setInt(1, falta.getId_alumno());
+			stmt.setInt(2, falta.getId_asignatura());
 			
+			stmt.executeUpdate();
+			
+			stmt = null;
 			stmt = conn.prepareStatement(FECHA);
 			stmt.setInt(1, falta.getId_alumno());
 			stmt.setInt(2, falta.getId_asignatura());
@@ -85,6 +92,40 @@ public class FaltaDAO {
 			ConnectionDB.closeStatement(stmt);
 			ConnectionDB.closeConnection(conn);
 		}
+	}
+	@SuppressWarnings("deprecation")
+	public Falta findIgual(Falta falta) {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		
+		try {
+			
+			conn = ConnectionDB.getConnection();
+			stmt = conn.prepareStatement(FIND_IGUAL);
+			stmt.setString(1, falta.getFecha());
+			stmt.setInt(2, falta.getId_alumno());
+			stmt.setInt(3, falta.getId_asignatura());
+			
+			ResultSet rs = stmt.executeQuery();
+			if (rs.next()) {
+				Falta falta2 = new Falta();
+				falta2.setFecha(rs.getString("fecha"));
+				falta2.setId_alumno(rs.getInt("id_alumno"));
+				falta2.setId_asignatura(rs.getInt("id_asignatura"));
+			
+				return falta2;
+			} else {
+				return null;
+			}
+			
+		} catch (SQLException e) {
+			// e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			ConnectionDB.closeStatement(stmt);
+			ConnectionDB.closeConnection(conn);
+		}
+
 	}
 
 }
