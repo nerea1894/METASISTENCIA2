@@ -1,5 +1,46 @@
 package metasistencia;
 
-public class PanelNota {
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import model.Alumno;
+
+public class PanelNota extends JPanel implements ActionListener{
+
+	FramePrincipal framePrincipal;
+
+	private JButton bAmonestacion, bVolver, bFalta, bNota;
+	private JLabel nombreAlumno,imagen;
+
+	
+	static Alumno alumnoSeleccionado;
+	Font fuente = new Font("Century Gothic", Font.BOLD, 20);
+	
+	public PanelNota(JFrame framePrincipal){
+	
+		//Inicializar
+		
+		this.setLayout(null);
+		
+		this.framePrincipal = (FramePrincipal) framePrincipal;
+		
+		//Recoger alumnos
+		
+		
+		
+		//Creacion de componentes
+
+}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
 }

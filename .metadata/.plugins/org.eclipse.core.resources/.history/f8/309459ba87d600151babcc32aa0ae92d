@@ -1,0 +1,201 @@
+package metasistencia;
+
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
+import javax.swing.AbstractButton;
+import javax.swing.Box;
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+
+import model.Alumno;
+
+public class PanelAlumno extends JPanel implements ActionListener{
+
+	FramePrincipal framePrincipal;
+
+	private JButton bAmonestacion, bVolver, bFalta, bNota;
+	private JLabel nombreAlumno,imagen;
+
+	
+	static Alumno alumnoSeleccionado;
+	Font fuente = new Font("Century Gothic", Font.BOLD, 20);
+	
+	public PanelAlumno(JFrame framePrincipal){
+	
+		//Inicializar
+		
+		this.setLayout(null);
+		
+		this.framePrincipal = (FramePrincipal) framePrincipal;
+		
+		//Recoger alumnos
+		
+		
+		
+		//Creacion de componentes
+		nombreAlumno = new JLabel("Alumno:");
+		nombreAlumno.setFont(fuente);
+		bAmonestacion = new JButton("Poner Amonestacion");
+		bAmonestacion.setFont(fuente);
+		bVolver= new JButton("Volver");
+		bVolver.setFont(fuente);
+		bFalta= new JButton("Poner Falta");
+		bFalta.setFont(fuente);
+		bNota= new JButton("Poner notas");
+		bNota.setFont(fuente);
+		imagen = new JLabel(new ImageIcon(".\\img\\iesnum1.png"));
+		//new ImageIcon(".\\img\\iesnum1.png"));
+		
+		
+		//Posicionamiento de los componentes
+		nombreAlumno.setBounds(55, 59, 160, 18);
+		bAmonestacion.setBounds(353, 97, 299, 52);
+		bVolver.setBounds(55, 285, 171, 52);
+		bFalta.setBounds(353, 187, 299, 52);
+		bNota.setBounds(353, 285, 299, 52);
+		imagen.setBounds(new Rectangle(525, 0, 160, 86));
+		
+		
+		//Añadir al panel los componentes
+		this.add(nombreAlumno);
+		this.add(bAmonestacion);
+		this.add(bVolver);
+		this.add(bFalta);
+		this.add(bNota);
+		this.add(imagen);
+		
+		//metodos listener
+		bAmonestacion.addActionListener(this);
+		bVolver.addActionListener(this);
+		bFalta.addActionListener(this);
+		bNota.addActionListener(this);
+
+		
+}
+	
+	public void ponerAmonestacion(){
+	
+		
+		Object[] textoError = { "Aceptar" };
+
+		JOptionPane.showMessageDialog(null,
+				"No hay ningun alumno seleccionado.", "Error",JOptionPane.ERROR_MESSAGE);
+		
+		
+		
+		/*
+		 final JFrame frame = new JFrame("JOptionPane Demo");
+		 
+	        // implement ItemListener interface
+	        class MyItemListener implements ItemListener {
+	            public void itemStateChanged(ItemEvent ev) {
+	                boolean selected = (ev.getStateChange() == ItemEvent.SELECTED);
+	                AbstractButton button = (AbstractButton) ev.getItemSelectable();
+	                String command = button.getActionCommand();
+	                if (selected) {
+	                    int optionType = -1;
+	 
+	                    if (command.equals("YES_NO_OPTION")) {
+	                        optionType = JOptionPane.YES_NO_OPTION;
+	                    } else if (command.equals("YES_NO_CANCEL_OPTION")) {
+	                        optionType = JOptionPane.YES_NO_CANCEL_OPTION;
+	                    }
+	 
+	                    JOptionPane.showOptionDialog(frame,
+	                            "Are you sure to confirm the action you've made?",
+	                            "JOptionPane Demo",
+	                            optionType,
+	                            JOptionPane.INFORMATION_MESSAGE, // icon
+	                            null,
+	                            null,
+	                            null);
+	                }
+	            }
+	        }
+	 
+	        JRadioButton r1 = new JRadioButton("Yes / No Options");
+	        r1.setActionCommand("YES_NO_OPTION");
+	 
+	        JRadioButton r2 = new JRadioButton("Yes / No / Cancel Options");
+	        r2.setActionCommand("YES_NO_CANCEL_OPTION");
+	 
+	        // add event handlers
+	        MyItemListener myItemListener = new MyItemListener();
+	        r1.addItemListener(myItemListener);
+	        r2.addItemListener(myItemListener);
+	 
+	        // add radio buttons to a ButtonGroup
+	        final ButtonGroup group = new ButtonGroup();
+	        group.add(r1);
+	        group.add(r2);
+	 
+	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	        frame.setSize(300, 200);
+	        Container cont = frame.getContentPane();
+	        cont.setLayout(new GridLayout(0, 1));
+	        cont.add(new JLabel("Please choose the options type:"));
+	        cont.add(r1);
+	        cont.add(r2);
+	 
+	        frame.setVisible(true);
+		*/
+		
+		
+	        /*Box box = Box.createVerticalBox();
+	        JCheckBox cbox1 = new JCheckBox("Check me once");
+	        JCheckBox cbox2 = new JCheckBox("Check me twice");
+	        JCheckBox cbox3 = new JCheckBox("Check me thrice");
+	        box.add(cbox1);
+	        box.add(cbox2);
+	        box.add(cbox3);
+	        JOptionPane.showMessageDialog(null, box);*/
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource().equals(bNota)){	
+			
+				//this.framePrincipal.alumnoSeleccionado;
+				//this.framePrincipal.cambiarPanel(new PanelNota(framePrincipal));
+
+		}
+		if(e.getSource().equals(bFalta)){	
+			
+			//PONER FALTA AL ALUMNO SELECCIONADO"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+				ponerAmonestacion();
+			}
+	if(e.getSource().equals(bAmonestacion)){	
+			
+			//PONER amonestacion AL ALUMNO SELECCIONADO"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+	
+
+		    
+		
+		
+			}
+		
+		if(e.getSource().equals(bVolver)){	
+			
+			framePrincipal.cambiarPanel(new PanelListaAlumnos(framePrincipal));
+
+			}
+		
+	}
+}
