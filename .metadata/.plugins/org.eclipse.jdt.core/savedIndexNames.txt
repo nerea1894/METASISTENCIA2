@@ -14,7 +14,6 @@ INDEX VERSION 1.127+G:\Clase\Desarrollo de interfaces\Proyecto_MetAsistencia\MET
 1065832147.index
 1947431546.index
 3529119476.index
-3812805168.index
 4004133052.index
 1604200090.index
 3454125809.index

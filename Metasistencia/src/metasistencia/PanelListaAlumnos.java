@@ -6,19 +6,25 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 
 import DAO.AlumnoDAO;
+import DAO.FaltaDAO;
 import model.Alumno;
+import model.Falta;
 
+import javax.swing.AbstractButton;
 import javax.swing.DefaultListCellRenderer.UIResource;
 
 
@@ -32,6 +38,7 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 	private JLabel etiResultado;
 	private JScrollPane scrollPane;
 	private ArrayList<Alumno> alumnos;
+	private String nombre;
 	
 	Font fuente = new Font("Century Gothic", Font.BOLD, 20);
 	
@@ -104,6 +111,7 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 								
 				for (int i = 0; i < listaAlumnos.getModel().getSize();  i++) {
 				if(listaAlumnos.getSelectedIndex()==i){
+					nombre = listaAlumnos.getSelectedValue().toString();
 					mensaje= listaAlumnos.getSelectedValue().toString()+" seleccionado";
 				}
 				}
@@ -134,9 +142,14 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 			String mensaje = "";
 			if(listaAlumnos.getSelectedIndex()==-1){
 				mensaje="No hay ningun alumno seleccionado";
+				Object[] textoError = { "Aceptar" };
+
+				JOptionPane.showMessageDialog(null,
+						"No hay ningun alumno seleccionado.", "Error",JOptionPane.ERROR_MESSAGE);
 			}
 			else{
-				this.framePrincipal.alumnoSeleccionado = alumnos.get(listaAlumnos.getSelectedIndex());
+				AlumnoDAO alumnoDAO = new AlumnoDAO();
+				this.framePrincipal.alumnoSeleccionado = alumnoDAO.findByNombre(nombre);
 				this.framePrincipal.cambiarPanel(new PanelAlumno(framePrincipal));
 
 				
@@ -144,11 +157,30 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 			etiResultado.setText(mensaje);
 		}
 		if(e.getSource().equals(bFalta)){	
-			
-			//PONER FALTA AL ALUMNO SELECCIONADO"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
+			//Recoger el alumno
+			AlumnoDAO alumnoDAO = new AlumnoDAO();
+			this.framePrincipal.alumnoSeleccionado = alumnoDAO.findByNombre(nombre);
+			FaltaDAO faltaDAO = new FaltaDAO();
+			//Recoger la fecha de hoy
+			Calendar c = new GregorianCalendar();
+			int dia = c.get(Calendar.DATE);
+			int mes = c.get(Calendar.MONTH);
+			int annio = c.get(Calendar.YEAR);
+			String fecha = annio+"-"+"0"+(mes+1)+"-"+dia;
+			//Comprobar que la falta no este puesta ya
+			Falta falta = new Falta(fecha, this.framePrincipal.alumnoSeleccionado.getId(), this.framePrincipal.asignaturaImpartida.getId());
+			Falta falta_existe = faltaDAO.findIgual(falta);
+			if(falta_existe == null){
+				//Si no esta puesta insertamos la falta
+				faltaDAO.insert(falta);
+				etiResultado.setText("Falta puesta.");
+			} else{
+				//Si esta puesta, te avisamos
+				etiResultado.setText("La falta ya fue puesta.");
 			}
-		if(e.getSource().equals(bFinalizar)){	
+			
+		}
+		if(e.getSource().equals(bFinalizar)){
 			
 			framePrincipal.cambiarPanel(new PanelAsignatura(framePrincipal));
 

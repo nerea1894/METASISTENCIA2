@@ -92,10 +92,7 @@ public class PanelAlumno extends JPanel implements ActionListener{
 	public void ponerAmonestacion(){
 	
 		
-		/*Object[] textoError = { "Aceptar" };
-
-		JOptionPane.showMessageDialog(null,
-				"No hay ningun alumno seleccionado.", "Error",JOptionPane.ERROR_MESSAGE);*/		 
+		
 		 String amonestacion;
 
 	        Box box = Box.createVerticalBox();

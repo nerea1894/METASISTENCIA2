@@ -10,6 +10,36 @@ public class AlumnoDAO {
 
 	private static final String FIND_BY_ID = "SELECT * FROM alumno WHERE id=?;";
 	private static final String FIND_BY_ASIGNATURA = "SELECT a.* FROM alumno AS a, nota AS n WHERE a.id = n.id_alumno AND n.id_asignatura = ?;";
+	private static final String FIND_BY_NOMBRE = "SELECT * FROM alumno WHERE nombre=?;";
+	
+	public Alumno findByNombre(String name) {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		
+		try {
+			conn = ConnectionDB.getConnection();
+			stmt = conn.prepareStatement(FIND_BY_NOMBRE);
+			stmt.setString(1, name);
+			
+			ResultSet rs = stmt.executeQuery();
+			
+			if (rs.next()) {
+				Alumno alumno = new Alumno();
+				alumno.setId(rs.getInt("id"));
+				alumno.setNombre(rs.getString("nombre"));
+				
+				return alumno;
+			} else {
+				return null;
+			}
+		} catch (SQLException e) {
+			// e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			ConnectionDB.closeStatement(stmt);
+			ConnectionDB.closeConnection(conn);
+		}
+	}
 	
 	public Alumno findById(int id) {
 		Connection conn = null;
