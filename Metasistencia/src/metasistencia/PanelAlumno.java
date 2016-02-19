@@ -49,6 +49,9 @@ public class PanelAlumno extends JPanel implements ActionListener{
 		
 		
 		//Creacion de componentes
+		
+		alumno = new JLabel("alumnoseleccionado");
+		alumno.setFont(fuente);
 		nombreAlumno = new JLabel("Alumno:");
 		nombreAlumno.setFont(fuente);
 		bAmonestacion = new JButton("Poner Amonestacion");
@@ -64,6 +67,7 @@ public class PanelAlumno extends JPanel implements ActionListener{
 		
 		
 		//Posicionamiento de los componentes
+		alumno.setBounds(55, 94, 246, 18);
 		nombreAlumno.setBounds(55, 59, 160, 18);
 		bAmonestacion.setBounds(353, 97, 299, 52);
 		bVolver.setBounds(55, 285, 171, 52);
@@ -73,6 +77,7 @@ public class PanelAlumno extends JPanel implements ActionListener{
 		
 		
 		//Añadir al panel los componentes
+		this.add(alumno);
 		this.add(nombreAlumno);
 		this.add(bAmonestacion);
 		this.add(bVolver);
@@ -88,11 +93,9 @@ public class PanelAlumno extends JPanel implements ActionListener{
 
 		
 }
-	
+	/*metdo para añadir amonestacion a un alumno*/
 	public void ponerAmonestacion(){
 	
-		
-		
 		 String amonestacion;
 
 	        Box box = Box.createVerticalBox();

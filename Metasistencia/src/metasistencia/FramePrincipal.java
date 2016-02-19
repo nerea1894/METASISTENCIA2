@@ -1,8 +1,11 @@
 package metasistencia;
 
+import java.awt.Rectangle;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import model.Alumno;
@@ -27,6 +30,7 @@ public class FramePrincipal extends JFrame{
 	this.setContentPane(panelInicio);
 	panelInicio.setVisible(true);
 	
+
 	
 	
 	}

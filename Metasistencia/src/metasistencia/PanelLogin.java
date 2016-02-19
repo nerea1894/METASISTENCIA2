@@ -6,6 +6,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 import javax.swing.ComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -21,7 +22,9 @@ import metodos.Contrasenya;
 import model.Asignatura;
 import model.Profesor;
 
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.Rectangle;
 
 
 public class PanelLogin extends JPanel implements ActionListener{
@@ -41,6 +44,25 @@ public class PanelLogin extends JPanel implements ActionListener{
 		@SuppressWarnings("unchecked")
 		public PanelLogin(JFrame framePrincipal){
 			
+			//añadir logos
+			JLabel imagen;
+			imagen = new JLabel(new ImageIcon("G:\\Clase\\Desarrollo de interfaces\\Proyecto_MetAsistencia\\METASISTENCIA2\\Metasistencia\\src\\img\\iesnum1.png"));
+				imagen.setBounds(new Rectangle(276, 3, 157, 88));
+				this.add(imagen);	
+				
+				JLabel imagen1;
+				imagen1 = new JLabel(new ImageIcon("G:\\Clase\\Desarrollo de interfaces\\Proyecto_MetAsistencia\\METASISTENCIA2\\Metasistencia\\src\\img\\union europea.jpg"));
+					imagen1.setBounds(new Rectangle(554, 3, 113, 88));
+					this.add(imagen1);
+					
+					JLabel imagen3;
+					imagen3 = new JLabel(new ImageIcon("G:\\Clase\\Desarrollo de interfaces\\Proyecto_MetAsistencia\\METASISTENCIA2\\Metasistencia\\src\\img\\Generalitat-Valenciana.png"));
+					//new ImageIcon(".\\img\\iesnum1.png"));
+						imagen3.setBounds(new Rectangle(10, 3, 167, 78));
+						this.add(imagen3);
+			
+								
+						
 			//Recoger todos los profesores
 			ProfesorDAO profesorDAO = new ProfesorDAO();
 			ArrayList<Profesor> profesores = new ArrayList<Profesor>(); 
@@ -68,11 +90,11 @@ public class PanelLogin extends JPanel implements ActionListener{
 			
 			
 			//Posicionamiento de los componentes
-			cProfesor.setBounds(306, 102, 237, 43);		
-			tfPass.setBounds(306, 165, 237, 28);
-			bAcceder.setBounds(266, 240, 143, 52);
-			lProfesor.setBounds(116, 109, 130, 28); 
-			lContrasenya.setBounds(116, 165, 130, 28);
+			cProfesor.setBounds(306, 137, 237, 43);		
+			tfPass.setBounds(306, 200, 237, 28);
+			bAcceder.setBounds(266, 275, 143, 52);
+			lProfesor.setBounds(116, 144, 130, 28); 
+			lContrasenya.setBounds(116, 200, 130, 28);
 			
 			//Añadir al panel los componentes
 			this.add(cProfesor);
@@ -81,10 +103,10 @@ public class PanelLogin extends JPanel implements ActionListener{
 			this.add(lProfesor);
 			this.add(lContrasenya);
 			
-			
 			//metodos listener
 			bAcceder.addActionListener(this);
 	}
+		
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
