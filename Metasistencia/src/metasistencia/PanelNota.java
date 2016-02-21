@@ -10,7 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import DAO.NotaDAO;
 import model.Alumno;
+import model.Nota;
 
 public class PanelNota extends JPanel implements ActionListener{
 
@@ -110,8 +112,11 @@ public class PanelNota extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource().equals(bGuardar)){	
 			
-				//this.framePrincipal.alumnoSeleccionado;
-				this.framePrincipal.cambiarPanel(new PanelAlumno(framePrincipal));
+			NotaDAO notaDAO = new NotaDAO();
+			Nota nota = new Nota();
+			nota = notaDAO.findByAlumno(this.framePrincipal.alumnoSeleccionado.getId(), this.framePrincipal.asignaturaImpartida.getId());
+			
+			this.framePrincipal.cambiarPanel(new PanelAlumno(framePrincipal));
 
 		}
 		if(e.getSource().equals(bCancelar)){	

@@ -15,6 +15,13 @@ public class Amonestacion {
 		this.id_asignatura = id_clase;
 		this.id_alumno = id_alumno;
 	}
+	
+	public Amonestacion(String motivo, int id_clase, int id_alumno) {
+		super();
+		this.motivo = motivo;
+		this.id_asignatura = id_clase;
+		this.id_alumno = id_alumno;
+	}
 
 	/* GETTERS & SETTERS */
 	public int getId() {

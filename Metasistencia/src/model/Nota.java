@@ -20,6 +20,9 @@ public class Nota {
 		this.nota_ex = nota_ex;
 	}
 	
+	public Nota(){
+	}
+	
 	/* GETTERS & SETTERS */
 	public int getId_asignatura() {
 		return id_asignatura;

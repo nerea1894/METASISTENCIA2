@@ -165,27 +165,27 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 						"No hay ningun alumno seleccionado.", "Error",JOptionPane.ERROR_MESSAGE);
 			}
 			else{
-			//Recoger el alumno
-			AlumnoDAO alumnoDAO = new AlumnoDAO();
-			this.framePrincipal.alumnoSeleccionado = alumnoDAO.findByNombre(nombre);
-			FaltaDAO faltaDAO = new FaltaDAO();
-			//Recoger la fecha de hoy
-			Calendar c = new GregorianCalendar();
-			int dia = c.get(Calendar.DATE);
-			int mes = c.get(Calendar.MONTH);
-			int annio = c.get(Calendar.YEAR);
-			String fecha = annio+"-"+"0"+(mes+1)+"-"+dia;
-			//Comprobar que la falta no este puesta ya
-			Falta falta = new Falta(fecha, this.framePrincipal.alumnoSeleccionado.getId(), this.framePrincipal.asignaturaImpartida.getId());
-			Falta falta_existe = faltaDAO.findIgual(falta);
-			if(falta_existe == null){
-				//Si no esta puesta insertamos la falta
-				faltaDAO.insert(falta);
-				etiResultado.setText("Falta puesta.");
-			} else{
-				//Si esta puesta, te avisamos
-				etiResultado.setText("La falta ya fue puesta.");
-			}
+				//Recoger el alumno
+				AlumnoDAO alumnoDAO = new AlumnoDAO();
+				this.framePrincipal.alumnoSeleccionado = alumnoDAO.findByNombre(nombre);
+				FaltaDAO faltaDAO = new FaltaDAO();
+				//Recoger la fecha de hoy
+				Calendar c = new GregorianCalendar();
+				int dia = c.get(Calendar.DATE);
+				int mes = c.get(Calendar.MONTH);
+				int annio = c.get(Calendar.YEAR);
+				String fecha = annio+"-"+"0"+(mes+1)+"-"+dia;
+				//Comprobar que la falta no este puesta ya
+				Falta falta = new Falta(fecha, this.framePrincipal.alumnoSeleccionado.getId(), this.framePrincipal.asignaturaImpartida.getId());
+				Falta falta_existe = faltaDAO.findIgual(falta);
+				if(falta_existe == null){
+					//Si no esta puesta insertamos la falta
+					faltaDAO.insert(falta);
+					etiResultado.setText("Falta puesta.");
+				} else{
+					//Si esta puesta, te avisamos
+					etiResultado.setText("La falta ya fue puesta.");
+				}
 			}
 			
 		}

@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import javax.swing.AbstractButton;
 import javax.swing.Box;
@@ -23,7 +25,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
+import DAO.AlumnoDAO;
+import DAO.AmonestacionDAO;
+import DAO.FaltaDAO;
 import model.Alumno;
+import model.Amonestacion;
+import model.Falta;
 
 public class PanelAlumno extends JPanel implements ActionListener{
 
@@ -96,7 +103,7 @@ public class PanelAlumno extends JPanel implements ActionListener{
 	/*metdo para añadir amonestacion a un alumno*/
 	public void ponerAmonestacion(){
 	
-		 String amonestacion;
+		 String motivoAmonestacion = null;
 
 	        Box box = Box.createVerticalBox();
 	        JRadioButton r1 = new JRadioButton("Faltar el respeto");
@@ -118,19 +125,21 @@ public class PanelAlumno extends JPanel implements ActionListener{
 	        if(JOptionPane.OK_OPTION ==opc){
 	        	if(r1.isSelected()){
 	        		JOptionPane.showMessageDialog(null, "Añadida amonestacion: "+r1.getText());
-	        		amonestacion = r1.getText();
+	        		motivoAmonestacion = r1.getText();
 		        }
 	        	else if(r2.isSelected()){
 	        		JOptionPane.showMessageDialog(null, "Añadida amonestacion: "+r2.getText());
-	     	   		amonestacion = r2.getText();
+	        		motivoAmonestacion = r2.getText();
 	        	}
 	        	else if(r3.isSelected()){
 	        		JOptionPane.showMessageDialog(null, "Añadida amonestacion: "+r3.getText());
-	     	   		amonestacion = r3.getText();
+	        		motivoAmonestacion = r3.getText();
 	        	}
 	        	
-	        		   		//ponerrrrrr amonestacion al aalumno !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-
+	        	AmonestacionDAO amonestacionDAO = new AmonestacionDAO();
+	        	Amonestacion amonestacion = new Amonestacion(motivoAmonestacion, this.framePrincipal.alumnoSeleccionado.getId(), this.framePrincipal.asignaturaImpartida.getId());
+	        	amonestacionDAO.insert(amonestacion);
+	        	
 	        }		
 	}
 
@@ -138,28 +147,46 @@ public class PanelAlumno extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource().equals(bNota)){	
 			
-				//this.framePrincipal.alumnoSeleccionado;
 				this.framePrincipal.cambiarPanel(new PanelNota(framePrincipal));
 
 		}
 		if(e.getSource().equals(bFalta)){	
 			
-			//PONER FALTA AL ALUMNO SELECCIONADO"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+				//Recoger el alumno
+				AlumnoDAO alumnoDAO = new AlumnoDAO();
+				FaltaDAO faltaDAO = new FaltaDAO();
+				//Recoger la fecha de hoy
+				Calendar c = new GregorianCalendar();
+				int dia = c.get(Calendar.DATE);
+				int mes = c.get(Calendar.MONTH);
+				int annio = c.get(Calendar.YEAR);
+				String fecha = annio+"-"+"0"+(mes+1)+"-"+dia;
+				//Comprobar que la falta no este puesta ya
+				Falta falta = new Falta(fecha, this.framePrincipal.alumnoSeleccionado.getId(), this.framePrincipal.asignaturaImpartida.getId());
+				Falta falta_existe = faltaDAO.findIgual(falta);
+			if(falta_existe == null){
+				//Si no esta puesta insertamos la falta
+				faltaDAO.insert(falta);
+				JOptionPane.showMessageDialog(null,
+						"Falta puesta.", "Error",JOptionPane.ERROR_MESSAGE);
+			} else{
+				//Si esta puesta, te avisamos
+				JOptionPane.showMessageDialog(null,
+						"La falta ya esta puesta.", "Error",JOptionPane.ERROR_MESSAGE);
 			}
-	if(e.getSource().equals(bAmonestacion)){	
 			
-		
-			ponerAmonestacion();
-
-			//PONER amonestacion AL ALUMNO SELECCIONADO"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
+			if(e.getSource().equals(bAmonestacion)){	
+				
+				ponerAmonestacion();
+	
 			}
-		
-		if(e.getSource().equals(bVolver)){	
 			
-			framePrincipal.cambiarPanel(new PanelListaAlumnos(framePrincipal));
-
+			if(e.getSource().equals(bVolver)){	
+				
+				framePrincipal.cambiarPanel(new PanelListaAlumnos(framePrincipal));
+	
 			}
 		
+		}
 	}
 }

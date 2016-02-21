@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
+<<<<<<< HEAD
 <fullyQualifiedTypeName name="javax.swing.Box"/>
 <fullyQualifiedTypeName name="javax.swing.JCheckBox"/>
 <fullyQualifiedTypeName name="javax.swing.AbstractButton"/>
@@ -15,4 +16,13 @@
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 <fullyQualifiedTypeName name="javax.swing.JTextField"/>
 <fullyQualifiedTypeName name="java.awt.Color"/>
+=======
+<fullyQualifiedTypeName name="DAO.AlumnoDAO"/>
+<fullyQualifiedTypeName name="model.Alumno"/>
+<fullyQualifiedTypeName name="DAO.FaltaDAO"/>
+<fullyQualifiedTypeName name="model.Falta"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
+>>>>>>> 8f20fe8e9e1ff023620e99e2df57e4280a8cb885
 </qualifiedTypeNameHistroy>
