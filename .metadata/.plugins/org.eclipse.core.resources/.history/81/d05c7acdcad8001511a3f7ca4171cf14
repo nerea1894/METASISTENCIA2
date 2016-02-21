@@ -4,10 +4,9 @@ public class Alumno {
 	
 	private int id;
 	private String nombre;
-	private String apellidos;
 	
 	/* CONSTRUCTOR */
-	public Alumno(int id, String nombre, String apellidos) {
+	public Alumno(int id, String nombre) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -30,12 +29,7 @@ public class Alumno {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getApellidos() {
-		return apellidos;
-	}
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
-	}
+	
 	
 
 }

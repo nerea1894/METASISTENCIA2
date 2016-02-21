@@ -97,6 +97,7 @@ public class PanelNota extends JPanel implements ActionListener{
 
 				this.add(bGuardar);
 				this.add(bCancelar);
+
 				
 				//metodos listener
 				bGuardar.addActionListener(this);
@@ -113,17 +114,8 @@ public class PanelNota extends JPanel implements ActionListener{
 			
 			NotaDAO notaDAO = new NotaDAO();
 			Nota nota = new Nota();
-			nota.setId_alumno(this.framePrincipal.alumnoSeleccionado.getId());
-			nota.setId_asignatura(this.framePrincipal.asignaturaImpartida.getId());
-			if (!(tftri1.getText().toString()).equals(""))
-				nota.setNota1(Integer.parseInt(tftri1.getText().toString()));
-			if (!(tftri2.getText().toString()).equals(""))
-				nota.setNota2(Integer.parseInt(tftri2.getText().toString()));
-			if (!(tftri3.getText().toString()).equals(""))
-				nota.setNota3(Integer.parseInt(tftri3.getText().toString()));
-			if (!(tfnotaExtraordinaria.getText().toString()).equals(""))
-				nota.setNota_ex(Integer.parseInt(tfnotaExtraordinaria.getText().toString()));
-			notaDAO.update(nota);
+			nota = notaDAO.findByAlumno(this.framePrincipal.alumnoSeleccionado.getId(), this.framePrincipal.asignaturaImpartida.getId());
+			
 			this.framePrincipal.cambiarPanel(new PanelAlumno(framePrincipal));
 
 		}

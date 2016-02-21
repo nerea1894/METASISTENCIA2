@@ -57,7 +57,7 @@ public class PanelAlumno extends JPanel implements ActionListener{
 		
 		//Creacion de componentes
 		
-		alumno = new JLabel(this.framePrincipal.alumnoSeleccionado.getNombre());
+		alumno = new JLabel("alumnoseleccionado");
 		alumno.setFont(fuente);
 		nombreAlumno = new JLabel("Alumno:");
 		nombreAlumno.setFont(fuente);
