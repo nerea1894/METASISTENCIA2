@@ -32,10 +32,10 @@ public class PanelLogin extends JPanel implements ActionListener{
 	//Declaracion de componentes
 		FramePrincipal framePrincipal;
 		
-		private JLabel lProfesor, lContrasenya,imagen;
+		private JLabel lProfesor, lContrasenya;
 		private JButton bAcceder;
 		private JPasswordField tfPass;
-		
+		private JLabel imagen, imagen1, imagen2;
 		private JComboBox cProfesor;
 
 		Font fuente = new Font("Century Gothic", Font.BOLD, 20);
@@ -43,24 +43,6 @@ public class PanelLogin extends JPanel implements ActionListener{
 		/*Constructor*/
 		@SuppressWarnings("unchecked")
 		public PanelLogin(JFrame framePrincipal){
-			
-			//añadir logos
-			JLabel imagen;
-			imagen = new JLabel(new ImageIcon("G:\\Clase\\Desarrollo de interfaces\\Proyecto_MetAsistencia\\METASISTENCIA2\\Metasistencia\\src\\img\\iesnum1.png"));
-				imagen.setBounds(new Rectangle(276, 3, 157, 88));
-				this.add(imagen);	
-				
-				JLabel imagen1;
-				imagen1 = new JLabel(new ImageIcon("G:\\Clase\\Desarrollo de interfaces\\Proyecto_MetAsistencia\\METASISTENCIA2\\Metasistencia\\src\\img\\union europea.jpg"));
-					imagen1.setBounds(new Rectangle(554, 3, 113, 88));
-					this.add(imagen1);
-					
-					JLabel imagen3;
-					imagen3 = new JLabel(new ImageIcon("G:\\Clase\\Desarrollo de interfaces\\Proyecto_MetAsistencia\\METASISTENCIA2\\Metasistencia\\src\\img\\Generalitat-Valenciana.png"));
-					//new ImageIcon(".\\img\\iesnum1.png"));
-						imagen3.setBounds(new Rectangle(10, 3, 167, 78));
-						this.add(imagen3);
-			
 								
 						
 			//Recoger todos los profesores
@@ -68,9 +50,9 @@ public class PanelLogin extends JPanel implements ActionListener{
 			ArrayList<Profesor> profesores = new ArrayList<Profesor>(); 
 			profesores = profesorDAO.findAll();
 			String[] arrayProfesores = new String[profesores.size()];
-			for(int i=0;i<profesores.size();i++){
-				arrayProfesores[i] = profesores.get(i).getNombre();
-			}
+				for(int i=0;i<profesores.size();i++){
+					arrayProfesores[i] = profesores.get(i).getNombre();
+				}
 			
 			//Inicializar
 			this.setLayout(null);
@@ -87,7 +69,9 @@ public class PanelLogin extends JPanel implements ActionListener{
 			lProfesor.setFont(fuente);
 			lContrasenya = new JLabel("Contraseña");
 			lContrasenya.setFont(fuente);
-			
+			imagen = new JLabel(new ImageIcon(".\\img\\iesnum1.png"));
+			imagen1 = new JLabel(new ImageIcon(".\\img\\union europea.jpg"));
+			imagen2 = new JLabel(new ImageIcon(".\\img\\Generalitat-Valenciana.png"));
 			
 			//Posicionamiento de los componentes
 			cProfesor.setBounds(306, 137, 237, 43);		
@@ -95,6 +79,10 @@ public class PanelLogin extends JPanel implements ActionListener{
 			bAcceder.setBounds(266, 275, 143, 52);
 			lProfesor.setBounds(116, 144, 130, 28); 
 			lContrasenya.setBounds(116, 200, 130, 28);
+			imagen.setBounds(new Rectangle(276, 3, 157, 88));
+			imagen1.setBounds(new Rectangle(554, 3, 113, 88));
+			imagen2.setBounds(new Rectangle(10, 3, 167, 78));
+
 			
 			//Añadir al panel los componentes
 			this.add(cProfesor);
@@ -102,6 +90,9 @@ public class PanelLogin extends JPanel implements ActionListener{
 			this.add(bAcceder);
 			this.add(lProfesor);
 			this.add(lContrasenya);
+			this.add(imagen);	
+			this.add(imagen1);
+			this.add(imagen2);
 			
 			//metodos listener
 			bAcceder.addActionListener(this);

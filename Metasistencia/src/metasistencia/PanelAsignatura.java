@@ -29,6 +29,7 @@ public class PanelAsignatura extends JPanel implements ActionListener {
 			private JLabel lAsignatura;
 			private JButton bAcceder, bDesconectar;
 			private JComboBox cAsignatura;
+			private JLabel imagen, imagen1, imagen2;
 			private ArrayList<Asignatura> asignaturas;
 			
 			private Font fuente = new Font("Century Gothic", Font.BOLD, 20);
@@ -36,27 +37,8 @@ public class PanelAsignatura extends JPanel implements ActionListener {
 			/*Constructor*/
 	
 	public PanelAsignatura(JFrame framePrincipal){
+
 		
-		//añadir logos ordenar!!
-		JLabel imagen;
-		imagen = new JLabel(new ImageIcon("G:\\Clase\\Desarrollo de interfaces\\Proyecto_MetAsistencia\\METASISTENCIA2\\Metasistencia\\src\\img\\iesnum1.png"));
-		//new ImageIcon(".\\img\\iesnum1.png"));
-			imagen.setBounds(new Rectangle(276, 3, 157, 78));
-			this.add(imagen);	
-			JLabel imagen1;
-			imagen1 = new JLabel(new ImageIcon("G:\\Clase\\Desarrollo de interfaces\\Proyecto_MetAsistencia\\METASISTENCIA2\\Metasistencia\\src\\img\\union europea.jpg"));
-			//new ImageIcon(".\\img\\iesnum1.png"));
-				imagen1.setBounds(new Rectangle(554, 3, 113, 88));
-				this.add(imagen1);
-				
-				JLabel imagen3;
-				imagen3 = new JLabel(new ImageIcon("G:\\Clase\\Desarrollo de interfaces\\Proyecto_MetAsistencia\\METASISTENCIA2\\Metasistencia\\src\\img\\Generalitat-Valenciana.png"));
-				//new ImageIcon(".\\img\\iesnum1.png"));
-					imagen3.setBounds(new Rectangle(10, 3, 167, 78));
-					this.add(imagen3);
-					
-					
-					
 		//Inicializar
 		this.setLayout(null);
 		this.framePrincipal = (FramePrincipal) framePrincipal;
@@ -80,6 +62,10 @@ public class PanelAsignatura extends JPanel implements ActionListener {
 		bAcceder.setFont(fuente);
 		bDesconectar = new JButton("Desconectar");
 		bDesconectar.setFont(fuente);
+		imagen = new JLabel(new ImageIcon(".\\img\\iesnum1.png"));
+		imagen1 = new JLabel(new ImageIcon(".\\img\\union europea.jpg"));
+		imagen2 = new JLabel(new ImageIcon(".\\img\\Generalitat-Valenciana.png"));
+
 		
 		
 		//Posicionamiento de los componentes
@@ -87,15 +73,19 @@ public class PanelAsignatura extends JPanel implements ActionListener {
 		bAcceder.setBounds(116, 294, 247, 52);
 		lAsignatura.setBounds(284, 106, 146, 28);
 		bDesconectar.setBounds(387,294,207,52);
-		
+		imagen.setBounds(new Rectangle(276, 3, 157, 88));
+		imagen1.setBounds(new Rectangle(554, 3, 113, 88));
+		imagen2.setBounds(new Rectangle(10, 3, 167, 78));
 		
 		//Añadir al panel los componentes
 		this.add(cAsignatura);
 		this.add(bAcceder);
 		this.add(lAsignatura);
 		this.add(bDesconectar);
+		this.add(imagen);	
+		this.add(imagen1);
+		this.add(imagen2);
 		
-		cAsignatura.setSelectedItem(2);
 		
 		//metodos listener
 		cAsignatura.addActionListener(this);

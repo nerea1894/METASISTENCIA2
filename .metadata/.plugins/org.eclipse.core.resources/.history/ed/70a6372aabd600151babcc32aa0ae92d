@@ -1,0 +1,51 @@
+package metasistencia;
+
+import java.awt.Rectangle;
+import java.util.ArrayList;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import model.Alumno;
+import model.Asignatura;
+import model.Profesor;
+
+public class FramePrincipal extends JFrame{
+	
+	static PanelLogin panelInicio;
+	
+	public Profesor profesorConectado = new Profesor();
+	public Asignatura asignaturaImpartida = new Asignatura();
+	public Alumno alumnoSeleccionado = new Alumno();
+	
+	public FramePrincipal(){
+
+	
+	setTitle("MetAsistencia");
+	this.setLayout(null);
+	panelInicio = new PanelLogin(this);
+	panelInicio.setLayout(null);
+	this.setContentPane(panelInicio);
+	panelInicio.setVisible(true);
+	
+	JLabel imagen;
+	imagen = new JLabel(new ImageIcon("G:\\Clase\\Desarrollo de interfaces\\Proyecto_MetAsistencia\\METASISTENCIA2\\Metasistencia\\src\\img\\union europea.jpg"));
+	//new ImageIcon(".\\img\\iesnum1.png"));
+		imagen.setBounds(new Rectangle(525, 0, 160, 86));
+		this.add(imagen);
+	
+	
+	
+	}
+	
+	//Cambios de panel
+	public void cambiarPanel(JPanel panel){
+		this.getContentPane().setVisible(false);
+		panel.setBounds(this.getBounds());
+		this.setContentPane(panel);
+		panel.setVisible(true);
+	}
+
+}
