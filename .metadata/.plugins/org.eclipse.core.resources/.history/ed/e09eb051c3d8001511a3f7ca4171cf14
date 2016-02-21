@@ -11,7 +11,7 @@ import model.Nota;
 public class NotaDAO {
 	
 	private static final String FIND_BY_ALUMNO = "SELECT * FROM nota WHERE id_alumno=? AND id_asignatura=?;";
-	private static final String UPDATE = "UPDATE nota SET nota1=?, nota2=?, nota3=?, nota_ex=? WHERE id_alumno=?;";
+	private static final String UPDATE = "UPDATE nota SET nota1=?, nota2=?, nota3=?, nota_ex=? WHERE id=?;";
 	
 	public Nota findByAlumno(int id_alumno, int id_asignatura) {
 		Connection conn = null;
@@ -60,7 +60,7 @@ public class NotaDAO {
 			stmt.setInt(2, nota.getNota2());
 			stmt.setInt(3, nota.getNota3());
 			stmt.setInt(4, nota.getNota_ex());
-			stmt.setInt(5, nota.getId_alumno());
+			stmt.setInt(5, nota.getId());
 			
 			
 			return stmt.executeUpdate();

@@ -155,6 +155,7 @@ public class PanelAlumno extends JPanel implements ActionListener{
 			
 			//Recoger el alumno
 			AlumnoDAO alumnoDAO = new AlumnoDAO();
+			this.framePrincipal.alumnoSeleccionado = alumnoDAO.findByNombre(nombre);
 			FaltaDAO faltaDAO = new FaltaDAO();
 			//Recoger la fecha de hoy
 			Calendar c = new GregorianCalendar();
@@ -177,17 +178,18 @@ public class PanelAlumno extends JPanel implements ActionListener{
 						"La falta ya esta puesta.", "Error",JOptionPane.ERROR_MESSAGE);
 			}
 			
-		if(e.getSource().equals(bAmonestacion)){	
+	if(e.getSource().equals(bAmonestacion)){	
 			
+		
 			ponerAmonestacion();
 
-		}
+			}
 		
 		if(e.getSource().equals(bVolver)){	
 			
 			framePrincipal.cambiarPanel(new PanelListaAlumnos(framePrincipal));
 
-		}
+			}
 		
 	}
 }

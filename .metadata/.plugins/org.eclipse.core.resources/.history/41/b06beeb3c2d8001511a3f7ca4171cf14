@@ -113,8 +113,7 @@ public class PanelNota extends JPanel implements ActionListener{
 		if(e.getSource().equals(bGuardar)){	
 			
 			NotaDAO notaDAO = new NotaDAO();
-			Nota nota = new Nota();
-			nota = notaDAO.findByAlumno(this.framePrincipal.alumnoSeleccionado.getId(), this.framePrincipal.asignaturaImpartida.getId());
+			Nota nota = new nota();
 			
 			this.framePrincipal.cambiarPanel(new PanelAlumno(framePrincipal));
 

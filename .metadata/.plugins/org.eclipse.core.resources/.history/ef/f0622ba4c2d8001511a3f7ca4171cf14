@@ -11,7 +11,6 @@ import model.Nota;
 public class NotaDAO {
 	
 	private static final String FIND_BY_ALUMNO = "SELECT * FROM nota WHERE id_alumno=? AND id_asignatura=?;";
-	private static final String UPDATE = "UPDATE nota SET nota1=?, nota2=?, nota3=?, nota_ex=? WHERE id_alumno=?;";
 	
 	public Nota findByAlumno(int id_alumno, int id_asignatura) {
 		Connection conn = null;
@@ -29,8 +28,6 @@ public class NotaDAO {
 			
 			if (rs.next()) {
 				
-				nota.setId_alumno(rs.getInt(id_alumno));
-				nota.setId_asignatura(rs.getInt(id_asignatura));
 				nota.setNota1(rs.getInt("nota1"));
 				nota.setNota2(rs.getInt("nota2"));
 				nota.setNota3(rs.getInt("nota3"));
@@ -40,30 +37,6 @@ public class NotaDAO {
 			} else {
 				return null;
 			}
-		} catch (SQLException e) {
-			// e.printStackTrace();
-			throw new RuntimeException(e);
-		} finally {
-			ConnectionDB.closeStatement(stmt);
-			ConnectionDB.closeConnection(conn);
-		}
-	}
-	
-	public int update(Nota nota) {
-		Connection conn = null;
-		PreparedStatement stmt = null;
-		
-		try {
-			conn = ConnectionDB.getConnection();
-			stmt = conn.prepareStatement(UPDATE);
-			stmt.setInt(1, nota.getNota1());
-			stmt.setInt(2, nota.getNota2());
-			stmt.setInt(3, nota.getNota3());
-			stmt.setInt(4, nota.getNota_ex());
-			stmt.setInt(5, nota.getId_alumno());
-			
-			
-			return stmt.executeUpdate();
 		} catch (SQLException e) {
 			// e.printStackTrace();
 			throw new RuntimeException(e);
