@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="DAO.AlumnoDAO"/>
 <fullyQualifiedTypeName name="model.Alumno"/>
@@ -12,3 +13,6 @@
 <fullyQualifiedTypeName name="DAO.NotaDAO"/>
 <fullyQualifiedTypeName name="model.Nota"/>
 </qualifiedTypeNameHistroy>
+=======
+<qualifiedTypeNameHistroy/>
+>>>>>>> 954980eba6348918388c937e80eda4aa8720f358

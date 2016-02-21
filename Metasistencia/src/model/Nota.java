@@ -1,7 +1,9 @@
 package model;
 
+/*CLASE NOTA*/
 public class Nota {
 	
+	/*DECLARACION DE COMPONENTES*/
 	private int id_asignatura;
 	private int id_alumno;
 	private int nota1;

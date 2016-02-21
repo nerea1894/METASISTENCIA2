@@ -20,7 +20,7 @@ import DAO.AsignaturaDAO;
 import model.Asignatura;
 import model.Falta;
 
-
+/* PANEL SELECCIONAR ASIGNATURA */
 public class PanelAsignatura extends JPanel implements ActionListener {
 
 	//Declaracion de componentes
@@ -95,16 +95,16 @@ public class PanelAsignatura extends JPanel implements ActionListener {
 		
 	}
 
-	
+	//Metodos de botones
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+		//Acceder a la asignatura
 		if(e.getSource().equals(bAcceder)){
 			
 			framePrincipal.asignaturaImpartida = this.asignaturas.get(cAsignatura.getSelectedIndex());
 			framePrincipal.cambiarPanel(new PanelListaAlumnos(framePrincipal));
 		}
-		
+		//desconectar profesor
 		if(e.getSource().equals(bDesconectar)){
 			
 			framePrincipal.cambiarPanel(new PanelLogin(framePrincipal));

@@ -9,11 +9,14 @@ import java.util.ArrayList;
 import connectionDB.ConnectionDB;
 import model.Profesor;
 
+/* CLASE DAO DE PROFESOR */
 public class ProfesorDAO {
 	
+	/* CONSULTAS */
 	private static final String FIND_ALL = "SELECT * FROM profesor;";
 	private static final String CHECK_LOGIN = "SELECT * FROM profesor WHERE nombre=? AND contrasenya=?";
 	
+	/* BUSCAR TODOS LOS PROFESORES */
 	public ArrayList<Profesor> findAll() {
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -45,6 +48,7 @@ public class ProfesorDAO {
 		}
 	}
 	
+	/* COMPROBAR USUARIO Y CONTRASEÑA */
 	public Profesor check_login(String name, String password) {
 		Connection conn = null;
 		PreparedStatement stmt = null;

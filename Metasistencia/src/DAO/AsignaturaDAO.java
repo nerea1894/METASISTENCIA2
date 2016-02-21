@@ -9,10 +9,13 @@ import java.util.ArrayList;
 import connectionDB.ConnectionDB;
 import model.Asignatura;
 
+/* CLASE DAO DE ASIGNATURA */
 public class AsignaturaDAO {
 	
+	/* CONSULTAS */
 	private static final String FIND_BY_PROFESOR = "SELECT * FROM asignatura WHERE id_profesor = ?;";
 	
+	/* BUSCAR POR PROFESOR */
 	public ArrayList<Asignatura> findByProfesor(int id) {
 		Connection conn = null;
 		PreparedStatement stmt = null;

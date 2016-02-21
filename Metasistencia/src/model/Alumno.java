@@ -1,7 +1,9 @@
 package model;
 
+/* CLASE ALUMNO */
 public class Alumno {
 	
+	/* DECLARACION DE COMPONENTES */
 	private int id;
 	private String nombre;
 	private String apellidos;

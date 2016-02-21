@@ -32,17 +32,17 @@ import model.Alumno;
 import model.Amonestacion;
 import model.Falta;
 
+/* PANEL VER PERFIL ALUMNO */
 public class PanelAlumno extends JPanel implements ActionListener{
 
+	/* CONSTRUCCION DE COMPONENTES */
 	FramePrincipal framePrincipal;
-
 	private JButton bAmonestacion, bVolver, bFalta, bNota;
-	private JLabel nombreAlumno,alumno,imagen;
-
-	
+	private JLabel nombreAlumno,alumno;
 	static Alumno alumnoSeleccionado;
 	Font fuente = new Font("Century Gothic", Font.BOLD, 20);
 	
+	/* CONSTRUCTOR*/
 	public PanelAlumno(JFrame framePrincipal){
 	
 		//Inicializar
@@ -69,8 +69,6 @@ public class PanelAlumno extends JPanel implements ActionListener{
 		bFalta.setFont(fuente);
 		bNota= new JButton("Poner notas");
 		bNota.setFont(fuente);
-		imagen = new JLabel(new ImageIcon("G:\\Clase\\Desarrollo de interfaces\\Proyecto_MetAsistencia\\METASISTENCIA2\\Metasistencia\\src\\img\\union europea.jpg"));
-		//new ImageIcon(".\\img\\iesnum1.png"));
 		
 		
 		//Posicionamiento de los componentes
@@ -80,7 +78,6 @@ public class PanelAlumno extends JPanel implements ActionListener{
 		bVolver.setBounds(55, 285, 171, 52);
 		bFalta.setBounds(353, 187, 299, 52);
 		bNota.setBounds(353, 285, 299, 52);
-		imagen.setBounds(new Rectangle(525, 0, 160, 86));
 		
 		
 		//Añadir al panel los componentes
@@ -90,7 +87,6 @@ public class PanelAlumno extends JPanel implements ActionListener{
 		this.add(bVolver);
 		this.add(bFalta);
 		this.add(bNota);
-		this.add(imagen);
 		
 		//metodos listener
 		bAmonestacion.addActionListener(this);
@@ -143,13 +139,16 @@ public class PanelAlumno extends JPanel implements ActionListener{
 	        }		
 	}
 
+	/* metodo para los botones*/
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		//boton poner notas
 		if(e.getSource().equals(bNota)){	
 			
 				this.framePrincipal.cambiarPanel(new PanelNota(framePrincipal));
 
 		}
+		//boton poner falta
 		if(e.getSource().equals(bFalta)){	
 			
 				//Recoger el alumno
@@ -176,12 +175,13 @@ public class PanelAlumno extends JPanel implements ActionListener{
 			}
 		}
 			
+		//boton poner amonestacion
 			if(e.getSource().equals(bAmonestacion)){	
 				
 				ponerAmonestacion();
 	
 			}
-			
+			// boton volver
 			if(e.getSource().equals(bVolver)){	
 				
 				framePrincipal.cambiarPanel(new PanelListaAlumnos(framePrincipal));

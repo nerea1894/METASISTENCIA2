@@ -28,9 +28,10 @@ import model.Falta;
 import javax.swing.AbstractButton;
 import javax.swing.DefaultListCellRenderer.UIResource;
 
-
+/*PANEL LISTA ALUMNOS*/
 public class PanelListaAlumnos extends JPanel implements ActionListener{
 
+	/*declaracion de componentes*/
 	FramePrincipal framePrincipal;
 	
 	private JLabel lListaAlumnos;
@@ -44,6 +45,7 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 	
 	Font fuente = new Font("Century Gothic", Font.BOLD, 20);
 	
+	/* constructor*/
 	public PanelListaAlumnos(JFrame framePrincipal){
 	
 		//Inicializar
@@ -134,9 +136,10 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 	}
 		
 		
-
+	/*metodos para botones*/
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		//acceder a alumno
 		if(e.getSource().equals(bAcceder)){	
 			
 			if(listaAlumnos.getSelectedIndex()==-1){
@@ -155,6 +158,7 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 			}
 			etiResultado.setText(mensaje);
 		}
+		//poner falta desde la lista
 		if(e.getSource().equals(bFalta)){
 			if(listaAlumnos.getSelectedIndex()==-1){
 				mensaje="No hay ningun alumno seleccionado";
@@ -188,6 +192,7 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 			}
 			
 		}
+		//finalizar clase
 		if(e.getSource().equals(bFinalizar)){
 			
 			framePrincipal.cambiarPanel(new PanelAsignatura(framePrincipal));

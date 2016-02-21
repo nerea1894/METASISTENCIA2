@@ -9,10 +9,13 @@ import java.sql.Statement;
 import connectionDB.ConnectionDB;
 import model.Amonestacion;
 
+/*  CLASE DAO DE AMONESTACION */
 public class AmonestacionDAO {
 	
+	/*CONSULTAS*/
 	private static final String INSERT = "INSERT INTO amonestacion(motivo, id_asignatura, id_alumno) VALUES(?,?,?);";
 	
+	/* INSERTAR AMONESTACION */
 	public int insert(Amonestacion amonestacion) {
 		Connection conn = null;
 		PreparedStatement stmt = null;

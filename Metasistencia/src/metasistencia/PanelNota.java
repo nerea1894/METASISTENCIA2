@@ -14,8 +14,10 @@ import DAO.NotaDAO;
 import model.Alumno;
 import model.Nota;
 
+/* PANEL PONER NOTAS */
 public class PanelNota extends JPanel implements ActionListener{
-
+	
+	/* CONSTRUCTOR DE COMPONENTES*/
 	FramePrincipal framePrincipal;
 
 	private JButton bGuardar, bCancelar;
@@ -107,8 +109,11 @@ public class PanelNota extends JPanel implements ActionListener{
 				
 }
 
+	/*METODOS PARA BOTONES*/
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
+		//boton guardar nota
 		if(e.getSource().equals(bGuardar)){	
 			
 			NotaDAO notaDAO = new NotaDAO();
@@ -127,6 +132,7 @@ public class PanelNota extends JPanel implements ActionListener{
 			this.framePrincipal.cambiarPanel(new PanelAlumno(framePrincipal));
 
 		}
+		//boton cancelar
 		if(e.getSource().equals(bCancelar)){	
 			
 			this.framePrincipal.cambiarPanel(new PanelAlumno(framePrincipal));

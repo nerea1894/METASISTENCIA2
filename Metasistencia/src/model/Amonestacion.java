@@ -1,7 +1,8 @@
 package model;
 
+/* CLASE AMONESTACION */
 public class Amonestacion {
-	
+	/*DECLARACION DE COMPONENTES*/
 	private int id;
 	private String motivo;
 	private int id_asignatura;

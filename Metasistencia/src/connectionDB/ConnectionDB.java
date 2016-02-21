@@ -4,17 +4,19 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.Properties;
 
+/* CONEXION A LA BASE DE DATOS */
 public class ConnectionDB {	
 
 	public static Connection getConnection() {
 		try {
-			Properties props = new Properties();
+			Properties props = new Properties(); //Archivo donde esta la ruta
 			FileInputStream fis = null;
 			Connection con = null;
 
 			fis = new FileInputStream("db.properties");
 			props.load(fis);
 
+			//Cogemos los datos del archivo
 			String DRIVER_NAME = props.getProperty("DB_DRIVER_CLASS");
 			String DB_URL = props.getProperty("DB_URL");
 			String DB_NAME = props.getProperty("DB_NAME");
@@ -29,6 +31,7 @@ public class ConnectionDB {
 		}
 	}
 
+	/* CERRAMOS CONEXION */
 	public static void closeConnection(Connection con) {
 		if (con != null) {
 			try {
@@ -40,6 +43,7 @@ public class ConnectionDB {
 		}
 	}
 
+	/* CERRAMOS CONSULTA */
 	public static void closeStatement(Statement stmt) {
 		if (stmt != null) {
 			try {

@@ -6,12 +6,15 @@ import java.util.ArrayList;
 import connectionDB.ConnectionDB;
 import model.Alumno;
 
+/* CLASE DAO DE ALUMNO */
 public class AlumnoDAO {
 
+	/*CONSULTAS*/
 	private static final String FIND_BY_ID = "SELECT * FROM alumno WHERE id=?;";
 	private static final String FIND_BY_ASIGNATURA = "SELECT a.* FROM alumno AS a, nota AS n WHERE a.id = n.id_alumno AND n.id_asignatura = ?;";
 	private static final String FIND_BY_NOMBRE = "SELECT * FROM alumno WHERE nombre=?;";
 	
+	/* BUSCAR POR NOMBRE */
 	public Alumno findByNombre(String name) {
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -42,6 +45,7 @@ public class AlumnoDAO {
 		}
 	}
 	
+	/* BUSCAR POR ID */
 	public Alumno findById(int id) {
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -72,6 +76,7 @@ public class AlumnoDAO {
 		}
 	}
 	
+	/*BUSCAR POR ASIGNATURA*/
 	public ArrayList<Alumno> findByAsignatura(int id) {
 		Connection conn = null;
 		PreparedStatement stmt = null;

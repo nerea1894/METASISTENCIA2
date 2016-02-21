@@ -8,11 +8,14 @@ import java.sql.SQLException;
 import connectionDB.ConnectionDB;
 import model.Nota;
 
+/* CLASE DAO DE NOTA */
 public class NotaDAO {
 	
+	/*CONSULTAS*/
 	private static final String FIND_BY_ALUMNO = "SELECT * FROM nota WHERE id_alumno=? AND id_asignatura=?;";
 	private static final String UPDATE = "UPDATE nota SET nota1=?, nota2=?, nota3=?, nota_ex=? WHERE id_alumno=? AND id_asignatura=?;";
 	
+	/* BUSCAR POR ALUMNO */
 	public Nota findByAlumno(int id_alumno, int id_asignatura) {
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -49,6 +52,7 @@ public class NotaDAO {
 		}
 	}
 	
+	/* ACTUALIZAR NOTAS */
 	public int update(Nota nota) {
 		Connection conn = null;
 		PreparedStatement stmt = null;

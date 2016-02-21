@@ -4,15 +4,19 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
+/* CLASE PARA ENCRIPTAR CONTRASEÑA */
 public class Contrasenya {
 	
+	/* declaracion de componentes*/
 	static final String salt = "LaMeta_Proyecto_2DAM";
 	
+	/* encriptar contraseña */
 	public static String encriptarContrasenya(String passwordToHash) throws NoSuchAlgorithmException {         
         String securePassword = get_SHA_512_SecurePassword(passwordToHash, salt);
         return securePassword;
     }
  
+	/* generador de contraseña */
     private static String get_SHA_512_SecurePassword(String passwordToHash, String salt)
     {
         String generatedPassword = null;

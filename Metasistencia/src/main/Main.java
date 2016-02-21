@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 
 import metasistencia.FramePrincipal;
 
+/* CLASE MAIN */
 public class Main {
 	
 	public static void main(String[]args){

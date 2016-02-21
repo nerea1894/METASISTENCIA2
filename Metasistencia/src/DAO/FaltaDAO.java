@@ -14,13 +14,16 @@ import connectionDB.ConnectionDB;
 import model.Falta;
 import model.Profesor;
 
+/* CLASE DAO DE FALTA */
 public class FaltaDAO {
 	
+	/* CONSULTAS */
 	private static final String INSERT = "INSERT INTO falta VALUES(SYSDATE(),?,?);";
 	private static final String FECHA = "SELECT fecha FROM falta WHERE id_alumno=? AND id_asignatura=?;";
 	private static final String FIND_BY_ALUMNO = "SELECT * FROM falta WHERE id_alumno=? GROUP BY fecha;";
 	private static final String FIND_IGUAL = "SELECT * FROM falta WHERE fecha=? AND id_alumno=? AND id_asignatura=?;";
 	
+	/* INSERTAR FALTA */
 	@SuppressWarnings({ "resource", "null" })
 	public String insert(Falta falta) {
 		Connection conn = null;
@@ -62,6 +65,7 @@ public class FaltaDAO {
 		}
 	}
 	
+	/* BUSCAR POR ALUMNO */
 	public ArrayList<Falta> findByAlumno(int id) {
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -93,6 +97,8 @@ public class FaltaDAO {
 			ConnectionDB.closeConnection(conn);
 		}
 	}
+	
+	/* COMPROBAR QUE NO HAY FALTAS CON LA MISMA PRIMARY KEY */
 	@SuppressWarnings("deprecation")
 	public Falta findIgual(Falta falta) {
 		Connection conn = null;

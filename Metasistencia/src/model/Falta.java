@@ -1,7 +1,9 @@
 package model;
 
+/*CLASE FALTA*/
 public class Falta {
 	
+	/*DECLARACION DE COMPONENTES*/
 	private String fecha;
 	private int id_alumno;
 	private int id_asignatura;
