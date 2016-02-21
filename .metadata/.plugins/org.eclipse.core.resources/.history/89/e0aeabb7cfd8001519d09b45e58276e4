@@ -75,8 +75,7 @@ public class PanelLogin extends JPanel implements ActionListener{
 			tfPass = new JPasswordField();
 			tfPass.addFocusListener(new FocusAdapter() {
 				@Override
-				public void focusGained(FocusEvent e) {
-					tfPass.setBackground(Color.green);
+				public void focusGained(FocusEvent e) {tfPass.setBackground(Color.red);
 				}
 			});
 

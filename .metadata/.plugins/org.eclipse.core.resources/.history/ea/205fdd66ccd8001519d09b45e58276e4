@@ -57,7 +57,7 @@ public class PanelAlumno extends JPanel implements ActionListener{
 		
 		//Creacion de componentes
 		
-		alumno = new JLabel(this.framePrincipal.alumnoSeleccionado.getNombre()+" "+this.framePrincipal.alumnoSeleccionado.getApellidos() );
+		alumno = new JLabel(this.framePrincipal.alumnoSeleccionado.getNombre());
 		alumno.setFont(fuente);
 		nombreAlumno = new JLabel("Alumno:");
 		nombreAlumno.setFont(fuente);
@@ -74,7 +74,7 @@ public class PanelAlumno extends JPanel implements ActionListener{
 		
 		
 		//Posicionamiento de los componentes
-		alumno.setBounds(55, 94, 277, 26);
+		alumno.setBounds(55, 94, 246, 18);
 		nombreAlumno.setBounds(55, 59, 160, 18);
 		bAmonestacion.setBounds(353, 97, 299, 52);
 		bVolver.setBounds(55, 285, 171, 52);
@@ -137,7 +137,7 @@ public class PanelAlumno extends JPanel implements ActionListener{
 	        	}
 	        	
 	        	AmonestacionDAO amonestacionDAO = new AmonestacionDAO();
-	        	Amonestacion amonestacion = new Amonestacion(motivoAmonestacion, this.framePrincipal.asignaturaImpartida.getId(), this.framePrincipal.alumnoSeleccionado.getId());
+	        	Amonestacion amonestacion = new Amonestacion(motivoAmonestacion, this.framePrincipal.alumnoSeleccionado.getId(), this.framePrincipal.asignaturaImpartida.getId());
 	        	amonestacionDAO.insert(amonestacion);
 	        	
 	        }		
@@ -174,7 +174,6 @@ public class PanelAlumno extends JPanel implements ActionListener{
 				JOptionPane.showMessageDialog(null,
 						"La falta ya esta puesta.", "Error",JOptionPane.ERROR_MESSAGE);
 			}
-		}
 			
 			if(e.getSource().equals(bAmonestacion)){	
 				
@@ -189,4 +188,5 @@ public class PanelAlumno extends JPanel implements ActionListener{
 			}
 		
 		}
+	}
 }
