@@ -1,6 +1,2 @@
 eclipse.preferences.version=1
-<<<<<<< HEAD
-org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1455829862924" defaultVMConnector\="">\r\n<vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\r\n<vm id\="1455820931973" name\="jre1.8.0_60" path\="C\:\\Program Files\\Java\\jre1.8.0_60"/>\r\n<vm id\="1455829862924" javadocURL\="https\://docs.oracle.com/javase/8/docs/api/" name\="jre1.8.0_25" path\="C\:\\Program Files\\Java\\jre1.8.0_25"/>\r\n</vmType>\r\n</vmSettings>\r\n
-=======
-org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1455807848303">\r\n<vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\r\n<vm id\="1455807848303" name\="jdk1.8.0_65" path\="C\:\\Program Files\\Java\\jdk1.8.0_65"/>\r\n</vmType>\r\n</vmSettings>\r\n
->>>>>>> 154f1178a6ce564f474de335e9db19549eadf379
+org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1455829862924" defaultVMConnector\="">\r\n<vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\r\n<vm id\="1455829862924" name\="jre1.8.0_25" path\="C\:\\Program Files\\Java\\jre1.8.0_25"/>\r\n</vmType>\r\n</vmSettings>\r\n
