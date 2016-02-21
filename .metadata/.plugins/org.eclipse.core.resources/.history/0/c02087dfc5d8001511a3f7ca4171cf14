@@ -147,6 +147,7 @@ public class PanelAlumno extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource().equals(bNota)){	
 			
+				//this.framePrincipal.alumnoSeleccionado;
 				this.framePrincipal.cambiarPanel(new PanelNota(framePrincipal));
 
 		}
