@@ -1,6 +1,7 @@
 package metasistencia;
 
 import java.awt.Container;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Rectangle;
@@ -29,7 +30,7 @@ public class PanelAlumno extends JPanel implements ActionListener{
 	FramePrincipal framePrincipal;
 
 	private JButton bAmonestacion, bVolver, bFalta, bNota;
-	private JLabel nombreAlumno,imagen;
+	private JLabel nombreAlumno,alumno,imagen;
 
 	
 	static Alumno alumnoSeleccionado;
@@ -58,7 +59,8 @@ public class PanelAlumno extends JPanel implements ActionListener{
 		bFalta.setFont(fuente);
 		bNota= new JButton("Poner notas");
 		bNota.setFont(fuente);
-		imagen = new JLabel(new ImageIcon(".\\img\\iesnum1.png"));
+		imagen = new JLabel(new ImageIcon("G:\\Clase\\Desarrollo de interfaces\\Proyecto_MetAsistencia\\METASISTENCIA2\\Metasistencia\\src\\img\\union europea.jpg"));
+		//new ImageIcon(".\\img\\iesnum1.png"));
 		
 		
 		//Posicionamiento de los componentes
@@ -90,72 +92,43 @@ public class PanelAlumno extends JPanel implements ActionListener{
 	public void ponerAmonestacion(){
 	
 		
-		 final JFrame frame = new JFrame("JOptionPane Demo");
-		 
-	        // implement ItemListener interface
-	        class MyItemListener implements ItemListener {
-	            public void itemStateChanged(ItemEvent ev) {
-	                boolean selected = (ev.getStateChange() == ItemEvent.SELECTED);
-	                AbstractButton button = (AbstractButton) ev.getItemSelectable();
-	                String command = button.getActionCommand();
-	                if (selected) {
-	                    int optionType = -1;
-	 
-	                    if (command.equals("YES_NO_OPTION")) {
-	                        optionType = JOptionPane.YES_NO_OPTION;
-	                    } else if (command.equals("YES_NO_CANCEL_OPTION")) {
-	                        optionType = JOptionPane.YES_NO_CANCEL_OPTION;
-	                    }
-	 
-	                    JOptionPane.showOptionDialog(frame,
-	                            "Are you sure to confirm the action you've made?",
-	                            "JOptionPane Demo",
-	                            optionType,
-	                            JOptionPane.INFORMATION_MESSAGE, // icon
-	                            null,
-	                            null,
-	                            null);
-	                }
-	            }
-	        }
-	 
-	        JRadioButton r1 = new JRadioButton("Yes / No Options");
-	        r1.setActionCommand("YES_NO_OPTION");
-	 
-	        JRadioButton r2 = new JRadioButton("Yes / No / Cancel Options");
-	        r2.setActionCommand("YES_NO_CANCEL_OPTION");
-	 
-	        // add event handlers
-	        MyItemListener myItemListener = new MyItemListener();
-	        r1.addItemListener(myItemListener);
-	        r2.addItemListener(myItemListener);
-	 
-	        // add radio buttons to a ButtonGroup
-	        final ButtonGroup group = new ButtonGroup();
+		
+		 String amonestacion;
+
+	        Box box = Box.createVerticalBox();
+	        JRadioButton r1 = new JRadioButton("Faltar el respeto");
+	        JRadioButton r2 = new JRadioButton("Acción impropia, improcedente o indebida");
+	        JRadioButton r3 = new JRadioButton("Uso indebido de instalaciones o material intencionadamente");
+	        box.add(r1);
+	        box.add(r2);
+	        box.add(r3);
+	        ButtonGroup group = new ButtonGroup();
 	        group.add(r1);
 	        group.add(r2);
-	 
-	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	        frame.setSize(300, 200);
-	        Container cont = frame.getContentPane();
-	        cont.setLayout(new GridLayout(0, 1));
-	        cont.add(new JLabel("Please choose the options type:"));
-	        cont.add(r1);
-	        cont.add(r2);
-	 
-	        frame.setVisible(true);
-		
-		
-		
-	        /*Box box = Box.createVerticalBox();
-	        JCheckBox cbox1 = new JCheckBox("Check me once");
-	        JCheckBox cbox2 = new JCheckBox("Check me twice");
-	        JCheckBox cbox3 = new JCheckBox("Check me thrice");
-	        box.add(cbox1);
-	        box.add(cbox2);
-	        box.add(cbox3);
-	        JOptionPane.showMessageDialog(null, box);*/
-		
+	        group.add(r3);
+
+	        Object[] options = { "Aceptar", "Cancerlar" };
+	        int opc = JOptionPane.showOptionDialog(null, box, "Poner amonestacion",
+	        JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,
+	        null, options, options[0]);
+	        
+	        if(JOptionPane.OK_OPTION ==opc){
+	        	if(r1.isSelected()){
+	        		JOptionPane.showMessageDialog(null, "Añadida amonestacion: "+r1.getText());
+	        		amonestacion = r1.getText();
+		        }
+	        	else if(r2.isSelected()){
+	        		JOptionPane.showMessageDialog(null, "Añadida amonestacion: "+r2.getText());
+	     	   		amonestacion = r2.getText();
+	        	}
+	        	else if(r3.isSelected()){
+	        		JOptionPane.showMessageDialog(null, "Añadida amonestacion: "+r3.getText());
+	     	   		amonestacion = r3.getText();
+	        	}
+	        	
+	        		   		//ponerrrrrr amonestacion al aalumno !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+
+	        }		
 	}
 
 	@Override
@@ -163,23 +136,20 @@ public class PanelAlumno extends JPanel implements ActionListener{
 		if(e.getSource().equals(bNota)){	
 			
 				//this.framePrincipal.alumnoSeleccionado;
-				//this.framePrincipal.cambiarPanel(new PanelNota(framePrincipal));
+				this.framePrincipal.cambiarPanel(new PanelNota(framePrincipal));
 
 		}
 		if(e.getSource().equals(bFalta)){	
 			
 			//PONER FALTA AL ALUMNO SELECCIONADO"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-				ponerAmonestacion();
 			}
 	if(e.getSource().equals(bAmonestacion)){	
 			
+		
+			ponerAmonestacion();
+
 			//PONER amonestacion AL ALUMNO SELECCIONADO"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-	
-
-		    
-		
-		
 			}
 		
 		if(e.getSource().equals(bVolver)){	

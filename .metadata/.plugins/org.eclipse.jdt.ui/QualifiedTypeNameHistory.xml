@@ -2,4 +2,9 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="DAO.AlumnoDAO"/>
 <fullyQualifiedTypeName name="model.Alumno"/>
+<fullyQualifiedTypeName name="DAO.FaltaDAO"/>
+<fullyQualifiedTypeName name="model.Falta"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
 </qualifiedTypeNameHistroy>

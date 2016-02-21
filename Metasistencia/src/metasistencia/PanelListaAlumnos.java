@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
@@ -141,6 +142,10 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 			String mensaje = "";
 			if(listaAlumnos.getSelectedIndex()==-1){
 				mensaje="No hay ningun alumno seleccionado";
+				Object[] textoError = { "Aceptar" };
+
+				JOptionPane.showMessageDialog(null,
+						"No hay ningun alumno seleccionado.", "Error",JOptionPane.ERROR_MESSAGE);
 			}
 			else{
 				AlumnoDAO alumnoDAO = new AlumnoDAO();
