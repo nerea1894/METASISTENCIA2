@@ -69,8 +69,6 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 		scrollPane = new JScrollPane();
 		listaAlumnos = new JList();
 		listaAlumnos.setFont(fuente);
-		etiResultado = new JLabel();
-		etiResultado.setFont(new Font("Century Gothic", Font.BOLD, 16));
 
 		//Posicionamiento de los componentes
 		lListaAlumnos.setBounds(267, 22, 160, 18);
@@ -78,7 +76,6 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 		bFinalizar.setBounds(393, 334, 217, 52);
 		bFalta.setBounds(73, 334, 129, 52);
 		scrollPane.setBounds(73, 51, 542, 254);
-		etiResultado.setBounds(73, 305, 542, 18);
 
 		//Añadir al panel los componentes
 		this.add(lListaAlumnos);
@@ -86,20 +83,26 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 		this.add(bFinalizar);
 		this.add(bFalta);
 		this.add(scrollPane);
-		this.add(etiResultado);
 
 		//metodos listener
 		bFalta.addActionListener(this);
 		bAcceder.addActionListener(this);
 		bFinalizar.addActionListener(this);
+		
+		//modificar de aqui ha abajo!!!!!!!!!!
+				
+		etiResultado = new JLabel("etiresultado");
+		etiResultado.setFont(fuente);
+		etiResultado.setBounds(78, 305, 532, 18);
+		this.add(etiResultado);
 
 		
-		//se alinean las celdas al centro de la lista
+		//se alinean las celdas aL CENTRO
 				UIResource posicion = new UIResource();
 					posicion.setHorizontalAlignment(SwingConstants.CENTER);	 
 					listaAlumnos.setCellRenderer(posicion);
 
-		//se crea el lista y captura el elemento seleccionado en la lista
+		
 		listaAlumnos.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -116,9 +119,7 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 
 			}
 		});
-		
-		//Rellenar la lista con un arraylist
-		
+
 		//Crear un objeto DefaultListModel
 		DefaultListModel listModel = new DefaultListModel();
 		//Recorrer el contenido del ArrayList
@@ -193,6 +194,9 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 			framePrincipal.cambiarPanel(new PanelAsignatura(framePrincipal));
 
 			}
+		
+		
+		
 			
 	
 	}
