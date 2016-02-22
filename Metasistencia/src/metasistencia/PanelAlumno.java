@@ -39,7 +39,7 @@ public class PanelAlumno extends JPanel implements ActionListener{
 	/* CONSTRUCCION DE COMPONENTES */
 	FramePrincipal framePrincipal;
 	private JButton bAmonestacion, bVolver, bFalta, bNota;
-	private JLabel nombreAlumno,alumno;
+	private JLabel nombreAlumno, alumno, fondo;
 	static Alumno alumnoSeleccionado;
 	Font fuente = new Font("Century Gothic", Font.BOLD, 20);
 	private JLabel image;
@@ -98,6 +98,11 @@ public class PanelAlumno extends JPanel implements ActionListener{
 		bVolver.addActionListener(this);
 		bFalta.addActionListener(this);
 		bNota.addActionListener(this);
+		
+		//añadir fondo
+		fondo = new JLabel(new ImageIcon(".\\img\\fondo.jpg"));
+		fondo.setBounds(0, 0, 700, 455);
+		this.add(fondo);
 
 		
 }

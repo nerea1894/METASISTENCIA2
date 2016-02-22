@@ -11,6 +11,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -37,7 +38,7 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 	private JLabel lListaAlumnos;
 	private JButton bAcceder, bFinalizar, bFalta;
 	private JList listaAlumnos;
-	private JLabel etiResultado;
+	private JLabel etiResultado, fondo;
 	private JScrollPane scrollPane;
 	private ArrayList<Alumno> alumnos;
 	private String nombre;
@@ -94,7 +95,6 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 		bFalta.addActionListener(this);
 		bAcceder.addActionListener(this);
 		bFinalizar.addActionListener(this);
-
 		
 		//se alinean las celdas al centro de la lista
 				UIResource posicion = new UIResource();
@@ -131,6 +131,11 @@ public class PanelListaAlumnos extends JPanel implements ActionListener{
 		//Asociar el modelo de lista al JList
 		listaAlumnos.setModel(listModel);
 		scrollPane.setViewportView(listaAlumnos);
+		
+		//añadir fondo
+				fondo = new JLabel(new ImageIcon(".\\img\\fondo.jpg"));
+				fondo.setBounds(0, 0, 700, 455);
+				this.add(fondo);
 		
 
 	}

@@ -29,7 +29,7 @@ public class PanelAsignatura extends JPanel implements ActionListener {
 			private JLabel lAsignatura;
 			private JButton bAcceder, bDesconectar;
 			private JComboBox cAsignatura;
-			private JLabel imagen, imagen1, imagen2;
+			private JLabel imagen, imagen1, imagen2, fondo;
 			private ArrayList<Asignatura> asignaturas;
 			
 			private Font fuente = new Font("Century Gothic", Font.BOLD, 20);
@@ -91,6 +91,11 @@ public class PanelAsignatura extends JPanel implements ActionListener {
 		cAsignatura.addActionListener(this);
 		bAcceder.addActionListener(this);
 		bDesconectar.addActionListener(this);
+		
+		//añadir fondo
+		fondo = new JLabel(new ImageIcon(".\\img\\fondo.jpg"));
+		fondo.setBounds(0, 0, 700, 455);
+		this.add(fondo);
 		
 		
 	}

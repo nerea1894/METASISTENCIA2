@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -21,7 +22,7 @@ public class PanelNota extends JPanel implements ActionListener{
 	FramePrincipal framePrincipal;
 
 	private JButton bGuardar, bCancelar;
-	private JLabel lnombreAlumno,ltri1,ltri2,ltri3, lnotaExtraordinaria, lnotas;
+	private JLabel lnombreAlumno,ltri1,ltri2,ltri3, lnotaExtraordinaria, lnotas, fondo;
 	private JTextField tftri1,tftri2,tftri3, tfnotaExtraordinaria;
 
 	
@@ -43,7 +44,7 @@ public class PanelNota extends JPanel implements ActionListener{
 		//Creacion de componentes		
 				lnotas = new JLabel("Notas");
 				lnotas.setFont(fuente);
-				lnombreAlumno = new JLabel("alumnoseleccionado");
+				lnombreAlumno = new JLabel(this.framePrincipal.alumnoSeleccionado.getNombre() + " " + this.framePrincipal.alumnoSeleccionado.getApellidos());
 				lnombreAlumno.setFont(fuente);
 				ltri1 = new JLabel("1º Trimestre");
 				ltri1.setFont(fuente);
@@ -104,7 +105,10 @@ public class PanelNota extends JPanel implements ActionListener{
 				bGuardar.addActionListener(this);
 				bCancelar.addActionListener(this);
 
-				
+				//añadir fondo
+				fondo = new JLabel(new ImageIcon(".\\img\\fondo.jpg"));
+				fondo.setBounds(0, 0, 700, 455);
+				this.add(fondo);
 
 				
 }

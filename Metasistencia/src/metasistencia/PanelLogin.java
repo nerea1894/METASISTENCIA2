@@ -39,7 +39,7 @@ public class PanelLogin extends JPanel implements ActionListener{
 		private JLabel lProfesor, lContrasenya;
 		private JButton bAcceder;
 		private JPasswordField tfPass;
-		private JLabel imagen, imagen1, imagen2;
+		private JLabel imagen, imagen1, imagen2, fondo;
 		private JComboBox cProfesor;
 
 		Font fuente = new Font("Century Gothic", Font.BOLD, 20);
@@ -67,7 +67,7 @@ public class PanelLogin extends JPanel implements ActionListener{
 			//Inicializar
 			this.setLayout(null);
 			this.framePrincipal = (FramePrincipal) framePrincipal;
-			
+				
 			
 			//Creacion de componentes
 			cProfesor = new JComboBox(arrayProfesores);
@@ -79,29 +79,31 @@ public class PanelLogin extends JPanel implements ActionListener{
 					tfPass.setBackground(Color.green);
 				}
 			});
-
+			//fondo = new JLabel(new ImageIcon(".\\img\\fondo.jpg"));
 			bAcceder = new JButton("Acceder");
 			bAcceder.setFont(fuente);
 			lProfesor = new JLabel("Profesor");
-			lProfesor.setFont(fuente);
+			lProfesor.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 20));
 			lContrasenya = new JLabel("Contraseña");
-			lContrasenya.setFont(fuente);
+			lContrasenya.setFont(new Font("Rockwell Extra Bold", Font.BOLD, 20));
 			imagen = new JLabel(new ImageIcon(".\\img\\iesnum1.png"));
 			imagen1 = new JLabel(new ImageIcon(".\\img\\union europea.jpg"));
 			imagen2 = new JLabel(new ImageIcon(".\\img\\Generalitat-Valenciana.png"));
 			
 			//Posicionamiento de los componentes
+			//fondo.setBounds(0, 0, 700, 455);
 			cProfesor.setBounds(306, 137, 237, 43);		
 			tfPass.setBounds(306, 200, 237, 28);
 			bAcceder.setBounds(266, 275, 143, 52);
 			lProfesor.setBounds(116, 144, 130, 28); 
-			lContrasenya.setBounds(116, 200, 130, 28);
+			lContrasenya.setBounds(116, 200, 180, 28);
 			imagen.setBounds(new Rectangle(276, 3, 157, 88));
 			imagen1.setBounds(new Rectangle(554, 3, 113, 88));
 			imagen2.setBounds(new Rectangle(10, 3, 167, 78));
 
 			
 			//Añadir al panel los componentes
+			//this.add(fondo);
 			this.add(cProfesor);
 			this.add(tfPass);
 			this.add(bAcceder);
@@ -113,6 +115,11 @@ public class PanelLogin extends JPanel implements ActionListener{
 			
 			//metodos listener
 			bAcceder.addActionListener(this);
+			
+			//añadir fondo
+			fondo = new JLabel(new ImageIcon(".\\img\\fondo.jpg"));
+			fondo.setBounds(0, 0, 700, 455);
+			this.add(fondo);
 	}
 		
 		
