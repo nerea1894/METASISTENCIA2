@@ -27,11 +27,15 @@ public class FramePrincipal extends JFrame{
 	public FramePrincipal(){
 
 	setTitle("MetAsistencia");
+	setIconImage(getImage(".\\img\\iconolameta.png"));
 	this.setLayout(null);
 	panelInicio = new PanelLogin(this);
 	panelInicio.setLayout(null);
 	this.setContentPane(panelInicio);
-	panelInicio.setVisible(true);	
+	panelInicio.setVisible(true);
+	
+
+	
 	
 	}
 	

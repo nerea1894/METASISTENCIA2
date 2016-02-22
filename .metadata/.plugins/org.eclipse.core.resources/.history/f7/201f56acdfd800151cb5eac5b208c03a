@@ -71,7 +71,7 @@ public class PanelAlumno extends JPanel implements ActionListener{
 		bFalta.setFont(fuente);
 		bNota= new JButton("Poner notas");
 		bNota.setFont(fuente);
-		image=new JLabel( new ImageIcon(".\\img\\imagenusu1.png"));
+		image= new Image(".\\img\\imagenusu1.png");
 		
 		
 		//Posicionamiento de los componentes
@@ -81,7 +81,6 @@ public class PanelAlumno extends JPanel implements ActionListener{
 		bVolver.setBounds(55, 285, 171, 52);
 		bFalta.setBounds(353, 187, 299, 52);
 		bNota.setBounds(353, 285, 299, 52);
-		image.setBounds(new Rectangle(55, 131, 147, 133));
 		
 		
 		//Añadir al panel los componentes
@@ -91,7 +90,6 @@ public class PanelAlumno extends JPanel implements ActionListener{
 		this.add(bVolver);
 		this.add(bFalta);
 		this.add(bNota);
-		this.add(image);
 		
 		//metodos listener
 		bAmonestacion.addActionListener(this);

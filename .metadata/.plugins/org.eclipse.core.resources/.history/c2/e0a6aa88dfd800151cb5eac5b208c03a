@@ -4,7 +4,6 @@ import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -42,7 +41,6 @@ public class PanelAlumno extends JPanel implements ActionListener{
 	private JLabel nombreAlumno,alumno;
 	static Alumno alumnoSeleccionado;
 	Font fuente = new Font("Century Gothic", Font.BOLD, 20);
-	private JLabel image;
 	
 	/* CONSTRUCTOR*/
 	public PanelAlumno(JFrame framePrincipal){
@@ -71,7 +69,6 @@ public class PanelAlumno extends JPanel implements ActionListener{
 		bFalta.setFont(fuente);
 		bNota= new JButton("Poner notas");
 		bNota.setFont(fuente);
-		image=new JLabel( new ImageIcon(".\\img\\imagenusu1.png"));
 		
 		
 		//Posicionamiento de los componentes
@@ -81,7 +78,6 @@ public class PanelAlumno extends JPanel implements ActionListener{
 		bVolver.setBounds(55, 285, 171, 52);
 		bFalta.setBounds(353, 187, 299, 52);
 		bNota.setBounds(353, 285, 299, 52);
-		image.setBounds(new Rectangle(55, 131, 147, 133));
 		
 		
 		//Añadir al panel los componentes
@@ -91,7 +87,6 @@ public class PanelAlumno extends JPanel implements ActionListener{
 		this.add(bVolver);
 		this.add(bFalta);
 		this.add(bNota);
-		this.add(image);
 		
 		//metodos listener
 		bAmonestacion.addActionListener(this);

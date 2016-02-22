@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<<<<<<< HEAD
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="DAO.AlumnoDAO"/>
-<fullyQualifiedTypeName name="model.Alumno"/>
-<fullyQualifiedTypeName name="DAO.FaltaDAO"/>
-<fullyQualifiedTypeName name="model.Falta"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="java.util.Calendar"/>
-<fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
-<fullyQualifiedTypeName name="DAO.AmonestacionDAO"/>
-<fullyQualifiedTypeName name="model.Amonestacion"/>
-<fullyQualifiedTypeName name="DAO.NotaDAO"/>
-<fullyQualifiedTypeName name="model.Nota"/>
+<fullyQualifiedTypeName name="java.awt.Toolkit"/>
+<fullyQualifiedTypeName name="java.awt.Image"/>
+<fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
 </qualifiedTypeNameHistroy>
-=======
-<qualifiedTypeNameHistroy/>
->>>>>>> 954980eba6348918388c937e80eda4aa8720f358
