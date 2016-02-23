@@ -63,8 +63,5 @@ public class Nota {
 		this.nota_ex = nota_ex;
 	}
 	
-	public String toString(int nota){
-		return ""+nota+"";
-	}
 
 }
