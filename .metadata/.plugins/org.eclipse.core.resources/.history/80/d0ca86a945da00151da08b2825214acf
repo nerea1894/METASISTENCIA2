@@ -116,10 +116,10 @@ public class PanelNota extends JPanel implements ActionListener{
 				this.notas = notaDAO.findByAlumno(this.framePrincipal.alumnoSeleccionado.getId(), this.framePrincipal.asignaturaImpartida.getId());
 				
 				//Colocal las notas del alumno
-				tftri1.setText(notas.toString(this.notas.getNota1()));
-				tftri2.setText(notas.toString(this.notas.getNota2()));
-				tftri3.setText(notas.toString(this.notas.getNota3()));
-				tfnotaExtraordinaria.setText(notas.toString(this.notas.getNota_ex()));
+				tftri1.setText(this.notas.getNota1().toString());
+				tftri2.setBounds(242, 118, 188, 33);
+				tftri3.setBounds(466, 118, 187, 33);
+				tfnotaExtraordinaria.setBounds(242, 234, 200, 33);
 
 				
 }

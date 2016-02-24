@@ -24,7 +24,7 @@ public class PanelNota extends JPanel implements ActionListener{
 	private JButton bGuardar, bCancelar;
 	private JLabel lnombreAlumno,ltri1,ltri2,ltri3, lnotaExtraordinaria, lnotas, fondo;
 	private JTextField tftri1,tftri2,tftri3, tfnotaExtraordinaria;
-	private Nota notas;
+	private 
 
 	
 	//static Alumno alumnoSeleccionado;
@@ -110,16 +110,6 @@ public class PanelNota extends JPanel implements ActionListener{
 				fondo = new JLabel(new ImageIcon(".\\img\\fondo.jpg"));
 				fondo.setBounds(0, 0, 700, 455);
 				this.add(fondo);
-				
-				//Recoger notas del alumno
-				NotaDAO notaDAO = new NotaDAO();
-				this.notas = notaDAO.findByAlumno(this.framePrincipal.alumnoSeleccionado.getId(), this.framePrincipal.asignaturaImpartida.getId());
-				
-				//Colocal las notas del alumno
-				tftri1.setText(notas.toString(this.notas.getNota1()));
-				tftri2.setText(notas.toString(this.notas.getNota2()));
-				tftri3.setText(notas.toString(this.notas.getNota3()));
-				tfnotaExtraordinaria.setText(notas.toString(this.notas.getNota_ex()));
 
 				
 }
